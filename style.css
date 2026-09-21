@@ -1,0 +1,33 @@
+body{
+    background-color: #2b2b2b;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form{
+    width: 800px;
+        background-color: #555555;
+        padding: 20px;
+        margin: 50px auto;
+        border: 3px solid #888888cc;
+        border-radius: 10px;
+}
+
+.botao1 {
+    background-color: rgb(184, 184, 184);
+    color: #000000;
+    border: 3px solid #585858;
+    padding: 10px 380px;
+    margin: 5px auto;
+    border-radius: 10px;
+}
+
+label{
+    color:#ffffff;
+        font-weight: bold;
+}
+
+input{
+    width: 100px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
