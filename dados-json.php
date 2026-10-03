@@ -24,12 +24,23 @@
             "empresa" => [
                 "razaoSocial" => $razaoSocial,
                 "nomeFantasia" => $nomeFantasia,
-                "cnpj" => $cnpj,
+                "cnpj" => $cnpj
             ],
 
             "contato" => [
                 "email" => $email,
-                "telefone" => $telefone,
+                "telefone" => $telefone
+            ],
+
+            "localizacao" => [
+                "cidade" => $cidade,
+                "estado" => $estado
+            ],
+
+            "projeto" => [
+                "descricao" => $descricao,
+                "status" => $status,
+                "orcamento" => $orcamento
             ],
 
         ];
