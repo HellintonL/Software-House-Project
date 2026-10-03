@@ -2,29 +2,50 @@
 
                                         // VERIFICA SE O FORMULÁRIO FOI ENVIADO 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $razaoSocial = $_POST["razao_social"];
-    $nomeFantasia = $_POST["nome_fantasia"];
-    $cnpj = $_POST["cnpj"];
+        $razaoSocial = $_POST["razao_social"];
+        $nomeFantasia = $_POST["nome_fantasia"];
+        $cnpj = $_POST["cnpj"];
 
-    $email = $_POST["email"];
-    $telefone = $_POST["telefone"];
+        $email = $_POST["email"];
+        $telefone = $_POST["telefone"];
 
-    $cidade = $_POST["cidade"];
-    $estado = $_POST["estado"];
+        $cidade = $_POST["cidade"];
+        $estado = $_POST["estado"];
 
-    $descricao = $_POST["descricao"];
-    $status = $_POST["status"];
-    $orcamento = $_POST["orcamento"];
+        $descricao = $_POST["descricao"];
+        $status = $_POST["status"];
+        $orcamento = $_POST["orcamento"];
 
                                         // ORGANIZA OS DADOS DA NOVA EMPRESA
 
-    $novaEmpresa = "empresa" => [
-        "razaoSocial" => $razaoSocial,
-        "nomeFantasia" => $nomeFantasia,
-        "cnpj" => $cnpj,
-    ],
+        $novaEmpresa = [
+            "empresa" => [
+                "razaoSocial" => $razaoSocial,
+                "nomeFantasia" => $nomeFantasia,
+                "cnpj" => $cnpj,
+            ],
+
+            "contato" => [
+                "email" => $email,
+                "telefone" => $telefone,
+            ],
+
+        ];
+
+    }
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APD</title>
+</head>
+<body>
     
-
-
+</body>
+</html>
