@@ -18,4 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $status = $_POST["status"];
     $orcamento = $_POST["orcamento"];
 
-}
+                                        // ORGANIZA OS DADOS DA NOVA EMPRESA
+
+    $novaEmpresa = "empresa" => [
+        "razaoSocial" => $razaoSocial,
+        "nomeFantasia" => $nomeFantasia,
+        "cnpj" => $cnpj,
+    ],
+    
+
+
