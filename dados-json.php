@@ -98,13 +98,23 @@
     <ul>
         <?php foreach ($empresas as $empresa): ?>
             <li>
-                <strong><?php echo $empresa['empresa']['razaoSocial']; ?></strong> - <?php echo $empresa['empresa']['nomeFantasia']; ?> (<?php echo $empresa['empresa']['cnpj']; ?>)
+                <strong><?php echo $empresa['empresa']['razaoSocial']; ?>
+                    </strong> - <?php echo $empresa['empresa']['nomeFantasia']; ?>
+                         (<?php echo $empresa['empresa']['cnpj']; ?>)
                 <br>
-                <em><?php echo $empresa['contato']['email']; ?></em> - <?php echo $empresa['contato']['telefone']; ?>
+                <em><?php echo $empresa['contato']['email']; ?></em> 
+                    - 
+                    <?php echo $empresa['contato']['telefone']; ?>
                 <br>
-                <?php echo $empresa['localizacao']['cidade']; ?>, <?php echo $empresa['localizacao']['estado']; ?>
+                <?php echo $empresa['localizacao']['cidade']; ?>
+                    , 
+                    <?php echo $empresa['localizacao']['estado']; ?>
                 <br>
-                <?php echo $empresa['projeto']['descricao']; ?> - <?php echo $empresa['projeto']['status']; ?> - R$ <?php echo number_format($empresa['projeto']['orcamento'], 2, ',', '.'); ?>
+                <?php echo $empresa['projeto']['descricao']; ?> 
+                    -
+                    <?php echo $empresa['projeto']['status']; ?> 
+                    - R$ 
+                    <?php echo number_format($empresa['projeto']['orcamento'], 2, ',', '.'); ?>
             </li>
         <?php endforeach; ?>
     </ul>
