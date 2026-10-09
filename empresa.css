@@ -221,8 +221,9 @@ section {
 
 .especialidades {
    display: flex;
-   justify-content: space-between;
+   flex-direction: column;
    color: #08D9E8;
+   gap: 15px;
 
 }
 
