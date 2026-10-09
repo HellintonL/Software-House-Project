@@ -45,20 +45,20 @@
                 </div>
 
                 <div class="especialidades">
-                    <h2>Nossas especialidades</h2>
-                </div>
-
-                <div class="sobre-conteudo">
-                    <div class="sobre-texto"> 
-                        <p>
-                        Nossa empresa é especializada no desenvolvimento e na execução de projetos personalizados, transformando as ideias e necessidades de nossos clientes em soluções concretas. Trabalhamos com dedicação, responsabilidade e profissionalismo, buscando compreender cada demanda e oferecer soluções eficientes, sempre priorizando a qualidade, a organização e o cumprimento dos prazos estabelecidos.
-                        </p>
-                        <p>
-                        Nosso compromisso é acompanhar cada etapa do projeto, desde o planejamento inicial até a sua conclusão, garantindo que os resultados estejam alinhados às expectativas e aos objetivos de nossos clientes. Prezamos pela excelência na execução dos serviços, pela confiança nas relações profissionais e pela satisfação de cada cliente, oferecendo soluções que agregam valor e atendem às necessidades de cada projeto.
-                        </p>
                     </div>
-                    <div class="habilidades">
-                        <div class="habilidade">
+                    
+                    <div class="sobre-conteudo">
+                        <div class="sobre-texto"> 
+                            <p>
+                                Nossa empresa é especializada no desenvolvimento e na execução de projetos personalizados, transformando as ideias e necessidades de nossos clientes em soluções concretas. Trabalhamos com dedicação, responsabilidade e profissionalismo, buscando compreender cada demanda e oferecer soluções eficientes, sempre priorizando a qualidade, a organização e o cumprimento dos prazos estabelecidos.
+                            </p>
+                            <p>
+                                Nosso compromisso é acompanhar cada etapa do projeto, desde o planejamento inicial até a sua conclusão, garantindo que os resultados estejam alinhados às expectativas e aos objetivos de nossos clientes. Prezamos pela excelência na execução dos serviços, pela confiança nas relações profissionais e pela satisfação de cada cliente, oferecendo soluções que agregam valor e atendem às necessidades de cada projeto.
+                            </p>
+                        </div>
+                        <div class="habilidades">
+                            <h2>Nossas especialidades</h2>
+                            <div class="habilidade">
                             <h3>HTML</h3>
                             <p>Estruturação de páginas web.</p>
                         </div>  
