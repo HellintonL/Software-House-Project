@@ -100,27 +100,29 @@
     <h1>Empresas</h1>
     
     <ul>
+    <ul>
         <?php foreach ($empresas as $empresa): ?>
             <li>
-                <strong><?php echo $empresa['empresa']['razaoSocial']; ?>
-                    </strong> - <?php echo $empresa['empresa']['nomeFantasia']; ?>
-                         (<?php echo $empresa['empresa']['cnpj']; ?>)
+                <strong><?= $empresa["empresa"]["razaoSocial"]; ?>
+                    </strong> - <?= $empresa["empresa"]["nomeFantasia"]; ?>
+                         (<?= $empresa["empresa"]["cnpj"]; ?>)
                 <br>
-                <em><?php echo $empresa['contato']['email']; ?></em> 
-                    - 
-                    <?php echo $empresa['contato']['telefone']; ?>
-                <br>
-                <?php echo $empresa['localizacao']['cidade']; ?>
-                    , 
-                    <?php echo $empresa['localizacao']['estado']; ?>
-                <br>
-                <?php echo $empresa['projeto']['descricao']; ?> 
+                <em><? $empresa["contato"]["email"]; ?></em>
                     -
-                    <?php echo $empresa['projeto']['status']; ?> 
-                    - R$ 
-                    <?php echo number_format($empresa['projeto']['orcamento'], 2, ',', '.'); ?>
+                    <?= $empresa["contato"]["telefone"]; ?>
+                <br>
+                <?= $empresa["localizacao"]["cidade"]; ?>
+                    ,
+                    <?= $empresa["localizacao"]["estado"]; ?>
+                <br>
+                <?= $empresa["projeto"]["descricao"]; ?>
+                    -
+                    <?= $empresa["projeto"]["status"]; ?>
+                    - R$
+                    <?= number_format($empresa["projeto"]["orcamento"], 2, ',', '.'); ?>
             </li>
         <?php endforeach; ?>
+    </ul>
     </ul>
 </body>
 </html>
