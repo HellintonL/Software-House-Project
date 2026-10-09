@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitar orçamento</title>
     <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="projeto-cliente.css">
 </head>
 
 <body>
