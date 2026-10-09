@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kauã Castro | Portfólio</title>
+    <title>APD</title>
     <link rel="stylesheet" href="empresa.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -28,7 +28,7 @@
                 <h1>APD</h1>
                 <h2>Desenvolvedores de software</h2>
                 <p class="descricao">
-                    Somos um empresa onde pegamos os projetos de nossos clientes e fazemos pra ele
+                Nossa empresa é especializada na execução de projetos personalizados, transformando as ideias de nossos clientes em realidade. Trabalhamos com compromisso, qualidade e eficiência, buscando sempre atender às necessidades e expectativas de cada cliente.
                 </p>
             </div>
 
