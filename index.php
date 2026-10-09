@@ -15,8 +15,8 @@
 
         <nav>
             <a href="#inicio">Início</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#projetos">Projetos</a>
+            <a href="#sobre">Sobre a empresa</a>
+            <a href="#projetos">Apresentar projeto</a>
             <a href="#contato">Contato</a>
         </nav>
     </header>
@@ -26,14 +26,14 @@
             <div class="inicio-conteudo">
                 <p class="apresentacao">Olá, somos empresa</p>
                 <h1>APD</h1>
-                <h2>Desenvolvedor de software</h2>
+                <h2>Desenvolvedores de software</h2>
                 <p class="descricao">
-                    Gosto de transformar ideias em projetos utilizando programação e tecnologia!
+                    Somos um empresa onde pegamos os projetos de nossos clientes e fazemos pra ele
                 </p>
             </div>
 
             <div class="botoes">
-                <a href="#projetos" class="botao">Ver projetos</a>
+                <a href="#projetos" class="botao">Mostrar projeto </a>
                 <a href="#contato" class="botao botao-secundario">Entrar em contato</a>
             </div>
            </section>
