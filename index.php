@@ -44,6 +44,10 @@
                     <h2>Sobre a empresa</h2>
                 </div>
 
+                <div class="especialidades">
+                    <h2>Nossas especialidades</h2>
+                </div>
+
                 <div class="sobre-conteudo">
                     <div class="sobre-texto"> 
                         <p>
