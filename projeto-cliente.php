@@ -17,9 +17,10 @@
         <label>Tema do projeto:</label>
         <input type="text" name="projeto">
         <br>
-        <label>Escreva seu projeto:</label>
+        <label>Escreva sobre projeto:</label>
         <br>
         <textarea id="descricao" name="descricao" rows="5" cols="40" required></textarea>
+        <button type="submit">Enviar projeto</button>
     </form>
 </body>
 </html>

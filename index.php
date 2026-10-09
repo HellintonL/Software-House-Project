@@ -126,7 +126,7 @@
 
     <footer>
         <p>
-            Desenvolvido por <a href="https://look.devlook.xyz">Kauã Castro</a>
+            Desenvolvido pelo <a href="https://look.devlook.xyz">Grupo APD</a>
         </p>
         <p>
             HTML + CSS
