@@ -89,7 +89,7 @@
                         <span>HTML</span>
                         <span>CSS</span>
                     </div>
-                    <a href="atividades/produtos-json.php">Ver projetos</a>
+                    <a href="teste.html">Ver projetos</a>
                 </div>
 
                 <!-- PROJETO 2-->
