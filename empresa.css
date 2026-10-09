@@ -274,24 +274,6 @@ section {
 }
 
 /*===============================*/
-/*          TECNOLOGIAS          */
-/*===============================*/
-
-.tecnologias {
-   display: flex;
-   gap: 8px;
-   margin-bottom: 25px;
-}
-
-.tecnologias span {
-   background-color: #192944;
-   color: #B8DFFF;
-   padding: 5px 10px;
-   border-radius: 5px;
-   font-size: 12px;
-}
-
-/*===============================*/
 /*         CONTATO               */
 /*===============================*/
 

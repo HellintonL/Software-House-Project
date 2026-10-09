@@ -85,15 +85,11 @@
 
                     <h3>Apresentar projeto</h3>
                     <p>
-                        Descreva seu projeto, iremos fazer a análise da solicitação de projeto e retornamos com confimação e o orçamento.
+                        Conte-nos sobre seu projeto, seus objetivos e o que você deseja construir. Vamos analisar sua ideia e preparar uma proposta personalizada para você.
                     </p>
 
-                    <div class="tecnologias">
-                        <span>PHP</span>
-                        <span>HTML</span>
-                        <span>CSS</span>
-                    </div>
-                    <a href="teste.html">Ver projetos</a>
+                    
+                    <a href="teste.html">Apresentar projeto</a>
                 </div>
 
                 <!-- PROJETO 2-->
@@ -104,41 +100,20 @@
                         02
                     </div>
 
-                    <h3>Sistema de verificação de idade - GET</h3>
+                    <h3>Ver orçamento</h3>
                     <p>
-                        Recebe idade e informa se é maior ou menor de idade em GET
+                        Analisamos sua proposta com atenção para elaborar um orçamento, com valores e prazos de acordo com as necessidades do seu projeto. 
                     </p>
-
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>PHP</span>
-                    </div>
-                    <a href="atividades/idade.php">Ver projetos</a>
+                    <a href="atividades/idade.php">Ver orçamento e prazo</a>
                 </div>
 
-
-                    <!--PROJETO 3  -->
-                    <!--div class="card">
-                        <div class="numero-projeto">
-                            03
-                        </div>
-                        <h3>Sistema de cadastro</h3>
-                        <p>Descrição do sistema de cadastro</p>
-                        <div class="tecnologias">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            < span>PHP</span -->
-                        <!--/div>
-                        <a href="/helpdesk.php">Ver projeto</a>
-                    </div-->
                 </div>
             </section>
 
             <section id="contato" class="contato">
                 <div class="titulo-secao">
                     <p>Vamos conversar?</p>
-                    <h2>Contato</h2>
+                    <h2>Contatos</h2>
                 </div>
                 <div class="contato-links">
                     <a href="https://wa.me/5541998892366">WhatsApp</a>
