@@ -83,9 +83,9 @@
                         01
                     </div>
 
-                    <h3>Sistema de verificação de produtos - POST</h3>
+                    <h3>Apresentar projeto</h3>
                     <p>
-                        Recebe os produtos e informa se é de boa qualidade em POST
+                        Descreva seu projeto, iremos fazer a análise da solicitação de projeto e retornamos com confimação e o orçamento.
                     </p>
 
                     <div class="tecnologias">
@@ -119,7 +119,7 @@
 
 
                     <!--PROJETO 3  -->
-                    <div class="card">
+                    <!--div class="card">
                         <div class="numero-projeto">
                             03
                         </div>
@@ -129,9 +129,9 @@
                             <span>HTML</span>
                             <span>CSS</span>
                             < span>PHP</span -->
-                        </div>
+                        <!--/div>
                         <a href="/helpdesk.php">Ver projeto</a>
-                    </div>
+                    </div-->
                 </div>
             </section>
 
