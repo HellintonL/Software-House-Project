@@ -69,7 +69,7 @@
             </div>
 
             <button type="submit" class="botao-enviar">
-                Enviar projeto →
+                Enviar projeto
             </button>
 
             <p class="aviso">

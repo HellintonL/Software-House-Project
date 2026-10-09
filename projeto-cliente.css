@@ -19,11 +19,6 @@ body {
     align-items: center;
     padding: 40px 20px;
 }
-
-/*===============================*/
-/*       CONTAINER PRINCIPAL     */
-/*===============================*/
-
 .formulario-container {
     width: 100%;
     max-width: 650px;
@@ -33,10 +28,6 @@ body {
     border-radius: 16px;
     box-shadow: 0 15px 45px #00000040;
 }
-
-/*===============================*/
-/*             TÍTULO            */
-/*===============================*/
 
 .formulario-titulo {
     margin-bottom: 35px;
@@ -63,10 +54,6 @@ body {
     font-size: 15px;
 }
 
-/*===============================*/
-/*             FORMULÁRIO        */
-/*===============================*/
-
 .formulario {
     display: flex;
     flex-direction: column;
@@ -85,12 +72,7 @@ body {
     font-weight: bold;
 }
 
-/*===============================*/
-/*              CAMPOS           */
-/*===============================*/
-
-.campo input,
-.campo textarea {
+.campo input, .campo textarea {
     width: 100%;
     padding: 14px 16px;
     background-color: #080D1B;
@@ -112,23 +94,6 @@ body {
     min-height: 130px;
 }
 
-.campo input::placeholder,
-.campo textarea::placeholder {
-    color: #8798B3;
-}
-
-/* EFEITO AO CLICAR NO CAMPO */
-
-.campo input:focus,
-.campo textarea:focus {
-    border-color: #087FF5;
-    box-shadow: 0 0 0 3px #087FF51F;
-}
-
-/*===============================*/
-/*          BOTÃO ENVIAR         */
-/*===============================*/
-
 .botao-enviar {
     width: 100%;
     padding: 15px;
@@ -138,7 +103,6 @@ body {
     border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
     transition: 0.3s;
 }
 
@@ -149,10 +113,6 @@ body {
     transform: translateY(-3px);
 }
 
-/*===============================*/
-/*             AVISO             */
-/*===============================*/
-
 .aviso {
     color: #8798B3;
     font-size: 12px;
@@ -160,31 +120,3 @@ body {
     margin-top: -8px;
 }
 
-/*===============================*/
-/*         RESPONSIVIDADE        */
-/*===============================*/
-
-@media (max-width: 600px) {
-
-    body {
-        padding: 20px 12px;
-        align-items: flex-start;
-    }
-
-    .formulario-container {
-        padding: 25px 20px;
-        border-radius: 12px;
-    }
-
-    .formulario-titulo h1 {
-        font-size: 26px;
-    }
-
-    .formulario-titulo span {
-        font-size: 14px;
-    }
-
-    .formulario {
-        gap: 18px;
-    }
-}
