@@ -410,9 +410,8 @@ footer {
 
 
 
-img {
-   width: 1px;
-   height: 1px;
-   size: 1px;
+.logo {
+   width: 10px;
+   height: 10px;
    margin: 5px;
 }
