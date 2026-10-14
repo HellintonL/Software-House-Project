@@ -89,7 +89,7 @@
                     </p>
 
                     
-                    <a href="projeto-cliente.php">Apresentar projeto</a>
+                    <a href="/arquivos/projeto-cliente.php">Apresentar projeto</a>
                 </div>
 
                 <!-- PROJETO 2-->
