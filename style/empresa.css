@@ -407,3 +407,8 @@ footer {
        gap: 10px;
    }
 }
+
+.logo {
+   padding-left: 0;
+   margin-left: 0;
+}
