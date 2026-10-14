@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="logo">            
-            <img src="imagens/cabecalho.png" alt="logo da empresa" width="50px" height="50px">
+            <img src="imagens/cabecalho.png" alt="logo da empresa" width="150px" height="150px">
         </div>
 
         <nav>
