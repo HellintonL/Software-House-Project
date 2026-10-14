@@ -27,7 +27,7 @@ header {
    height: 80px;
    padding: 0 10%;
    display: flex;
-   justify-content: flex-start;
+   justify-content: space-between;
    align-items: center;
    background-color: #030817;
    border-bottom: 1px solid #263752;
@@ -409,6 +409,7 @@ footer {
 }
 
 .logo {
+   display: flex;
    position: relative;
    left: -300px;
 }
