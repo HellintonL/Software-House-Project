@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="logo">            
-            <img src="imagens/6ba8c261-6469-41f1-a89a-402696fe8575 (1).jpeg" alt="logo da empresa">
+            <img src="imagens/logo-aba1.png" alt="logo da empresa">
         </div>
 
         <nav>
