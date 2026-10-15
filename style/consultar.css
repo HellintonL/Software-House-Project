@@ -1,0 +1,207 @@
+
+/*===============================*/
+/*          CONFIGURAÇÕES         */
+/*===============================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #080D1B;
+    color: #F2F7FF;
+    line-height: 1.6;
+    padding: 0 10%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*===============================*/
+/*             MENU              */
+/*===============================*/
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 25px 0;
+    background-color: #030817;
+    border-bottom: 1px solid #263752;
+}
+
+nav a {
+    color: #F2F7FF;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #08D9E8;
+}
+
+/*===============================*/
+/*             TÍTULO             */
+/*===============================*/
+
+h1 {
+    color: #08D9E8;
+    font-size: 38px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+body > p {
+    color: #B8C6DC;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+/*===============================*/
+/*           FORMULÁRIO           */
+/*===============================*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 500px;
+    background-color: #0D1426;
+    padding: 30px;
+    border: 1px solid #263752;
+    border-radius: 12px;
+}
+
+label {
+    color: #F2F7FF;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    background-color: #080D1B;
+    color: #F2F7FF;
+    border: 1px solid #263752;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #08D9E8;
+}
+
+/*===============================*/
+/*            BOTÃO              */
+/*===============================*/
+
+button {
+    padding: 13px 20px;
+    background-color: #087FF5;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #08D9E8;
+    color: #080D1B;
+    transform: translateY(-3px);
+}
+
+/*===============================*/
+/*          SEPARADOR             */
+/*===============================*/
+
+hr {
+    border: none;
+    border-top: 1px solid #263752;
+    margin: 35px 0;
+}
+
+/*===============================*/
+/*       RESULTADO DO PROJETO     */
+/*===============================*/
+
+h2 {
+    color: #08D9E8;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+h2 ~ p {
+    color: #B8C6DC;
+    margin-bottom: 12px;
+}
+
+strong {
+    color: #F2F7FF;
+}
+
+/*===============================*/
+/*       RESPONSIVIDADE           */
+/*===============================*/
+
+@media (max-width: 800px) {
+
+    /* MENU */
+
+    body {
+        padding: 0 5%;
+    }
+
+    nav {
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    /* TÍTULO */
+
+    h1 {
+        font-size: 30px;
+        margin-top: 35px;
+    }
+
+    /* FORMULÁRIO */
+
+    form {
+        width: 100%;
+        padding: 20px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    /* RESULTADOS */
+
+    h2 {
+        font-size: 22px;
+    }
+
+}
