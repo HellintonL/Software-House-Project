@@ -102,6 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2>Conte sua ideia de projeto para nós!</h2>
     
     Preencha o formulário abaixo com as informações necessárias e nossa equipe irá avaliar sua proposta.
+    <br>
     </p>
 
     <!-- Formulário para receber a ideia do cliente -->
