@@ -88,46 +88,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!-- Verifica se a equipe já respondeu -->
                 <?php if (isset($projeto["resposta"])) { ?>
 
-                    <!-- Mostra se o projeto foi aprovado ou reprovado -->
-                    <?php if ($projeto["resposta"] == "APROVAR") { ?>
+                    <!-- Verifica se a equipe já respondeu -->
+                        <?php if (isset($projeto["resposta"])) { ?>
 
+                        <!-- Se foi recusado, não mostra orçamento -->
+                        <?php if ($projeto["resposta"] == "REPROVAR") { ?>
+
+                        <p><strong>Resultado:</strong> Recusado.</p>
+
+                        <?php } else { ?>
+
+                        <!-- Se foi aprovado, mostra o resultado e o orçamento -->
                         <p><strong>Resultado:</strong> Aprovado!</p>
 
-                    <?php } else { ?>
-
-                        <p><strong>Resultado:</strong> Reprovado.</p>
-
-                    <?php } ?>
-
-                    <!-- Mostra o orçamento, caso exista -->
-                    <p>
+                        <p>
                         <strong>Orçamento:</strong>
 
                         <?php if (isset($projeto["orcamento"])) { ?>
 
-                            R$ <?= number_format(
-                                (float)$projeto["orcamento"],
-                                2,
-                                ',',
-                                '.'
-                            ) ?>
+                        R$ <?= number_format(
+                        (float)$projeto["orcamento"],
+                        2,
+                        ',',
+                        '.'
+                        ) ?>
 
-                        <?php } else { ?>
+                            <?php } else { ?>
 
                             Não informado
 
-                        <?php } ?>
-                    </p>
+                            <?php } ?>
+                            </p>
 
-                <?php } else { ?>
+                            <?php } 
 
-                    <!-- Informa que o projeto ainda está sendo avaliado -->
-                    <p>
-                        <strong>Status:</strong>
-                        Aguardando avaliação da equipe de T.I.
-                    </p>
+                            } else { ?>
 
-                <?php } ?>
+                        <!-- Projeto que ainda não recebeu resposta -->
+                        <p>
+                            <strong>Status:</strong>
+                            Aguardando avaliação da equipe de T.I.
+                        </p>
+
+                    <?php } ?>
 
                 <hr>
 

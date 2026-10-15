@@ -1,52 +1,121 @@
-
 <?php
 
 // Caminho do arquivo JSON
 $caminhoJson = dirname(__DIR__) . "/dados/projetos.json";
 
-// Verifica se a equipe enviou uma resposta
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Lê os projetos salvos
-    $conteudoJson = file_get_contents($caminhoJson);
-    $projetos = json_decode($conteudoJson, true);
-
-    // Identifica o projeto e recebe a resposta
-    $indice = (int) $_POST["indice"];
-    $resposta = $_POST["resposta"];
-    $orcamento = $_POST["orcamento"];
-
-    // Verifica se o projeto existe e se a resposta é válida
-    if (
-        isset($projetos[$indice]) &&
-        ($resposta == "APROVAR" || $resposta == "REPROVAR")
-    ) {
-
-        // Salva a resposta e atualiza o status
-        $projetos[$indice]["resposta"] = $resposta;
-        $projetos[$indice]["status"] = "Respondido";
-        $projetos[$indice]["orcamento"] = $orcamento;
-
-        // Atualiza o arquivo JSON
-        $jsonAtualizado = json_encode(
-            $projetos,
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
-        );
-
-        file_put_contents($caminhoJson, $jsonAtualizado);
-    }
-
-    // Volta para a aba de projetos respondidos
-    header("Location: equipe-ti.php?aba=respondidos");
-    exit;
-}
-
-// Lê novamente os projetos para exibi-los na página
+// Lê os projetos salvos
 $conteudoJson = file_get_contents($caminhoJson);
 $projetos = json_decode($conteudoJson, true);
 
+// Verifica se o JSON contém uma lista válida
+if (!is_array($projetos)) {
+    $projetos = [];
+}
+
+// Verifica se algum formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Identifica a ação solicitada
+    $acao = $_POST["acao"] ?? "";
+
+    // Guarda a aba atual para voltar a ela
+    $abaDestino = ($_POST["aba"] ?? "") == "respondidos"
+        ? "respondidos"
+        : "aguardando";
+
+    // Exclui todos os projetos do arquivo JSON
+    if ($acao == "limpar_todos") {
+
+        file_put_contents($caminhoJson, "[]");
+
+        header("Location: equipe-ti.php?aba=" . $abaDestino);
+        exit;
+    }
+
+    // Exclui um projeto específico
+    if ($acao == "excluir_um") {
+
+        $indice = (int) $_POST["indice"];
+
+        // Verifica se o projeto existe
+        if (isset($projetos[$indice])) {
+
+            // Remove o projeto da lista
+            array_splice($projetos, $indice, 1);
+
+            // Atualiza o arquivo JSON
+            $jsonAtualizado = json_encode(
+                $projetos,
+                JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+            );
+
+            file_put_contents($caminhoJson, $jsonAtualizado);
+        }
+
+        header("Location: equipe-ti.php?aba=" . $abaDestino);
+        exit;
+    }
+
+    // Processa a resposta da equipe de T.I.
+    if ($acao == "responder") {
+
+        $indice = (int) $_POST["indice"];
+        $resposta = $_POST["resposta"] ?? "";
+
+        // Verifica se o projeto existe e a resposta é válida
+        if (
+            isset($projetos[$indice]) &&
+            ($resposta == "APROVAR" || $resposta == "REPROVAR")
+        ) {
+
+            // Se o projeto for aprovado, exige um orçamento válido
+            if ($resposta == "APROVAR") {
+
+                $orcamento = $_POST["orcamento"] ?? "";
+
+                if (
+                    $orcamento === "" ||
+                    !is_numeric($orcamento) ||
+                    (float) $orcamento < 0
+                ) {
+                    header(
+                        "Location: equipe-ti.php?aba=aguardando&erro=orcamento"
+                    );
+                    exit;
+                }
+
+                // Salva o orçamento do projeto aprovado
+                $projetos[$indice]["orcamento"] = (float) $orcamento;
+
+            } else {
+
+                // Se for recusado, remove qualquer orçamento existente
+                unset($projetos[$indice]["orcamento"]);
+            }
+
+            // Salva a resposta e atualiza o status
+            $projetos[$indice]["resposta"] = $resposta;
+            $projetos[$indice]["status"] = "Respondido";
+
+            // Atualiza o arquivo JSON
+            $jsonAtualizado = json_encode(
+                $projetos,
+                JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+            );
+
+            file_put_contents($caminhoJson, $jsonAtualizado);
+        }
+
+        // Após responder, abre a aba de projetos respondidos
+        header("Location: equipe-ti.php?aba=respondidos");
+        exit;
+    }
+}
+
 // Define qual aba será exibida
-$aba = isset($_GET["aba"]) ? $_GET["aba"] : "aguardando";
+$aba = ($_GET["aba"] ?? "") == "respondidos"
+    ? "respondidos"
+    : "aguardando";
 
 ?>
 
@@ -79,17 +148,25 @@ $aba = isset($_GET["aba"]) ? $_GET["aba"] : "aguardando";
             background-color: #333;
             color: white;
         }
+
+        .campo-orcamento {
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 8px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- Barra de navegação -->
+    <!-- Barra de navegação principal -->
     <nav>
         <a href="software-house.php">Enviar projeto</a>
         <a href="equipe-ti.php">Área da equipe de T.I.</a>
         <a href="consultar-projeto.php">Consultar projeto</a>
-        <a href="../index.php">VOLTAR ÍNDEX</a>
     </nav>
 
     <h1>Projetos recebidos</h1>
@@ -109,21 +186,40 @@ $aba = isset($_GET["aba"]) ? $_GET["aba"] : "aguardando";
 
     <hr>
 
+    <!-- Exibe um aviso se o orçamento estiver inválido -->
+    <?php if (isset($_GET["erro"]) && $_GET["erro"] == "orcamento") { ?>
+        <p>Informe um orçamento válido para aprovar o projeto.</p>
+    <?php } ?>
+
+    <!-- Botão para excluir todos os projetos -->
+    <?php if (!empty($projetos)) { ?>
+
+        <form method="POST"
+              onsubmit="return confirm('Deseja excluir TODOS os projetos?');">
+
+            <input type="hidden" name="acao" value="limpar_todos">
+            <input type="hidden" name="aba" value="<?= $aba ?>">
+
+            <button type="submit">Excluir todos os projetos</button>
+        </form>
+
+    <?php } ?>
+
     <?php
 
     // Controla se algum projeto foi encontrado na aba
     $encontrou = false;
 
-    // Percorre todos os projetos cadastrados
+    // Percorre todos os projetos salvos
     foreach ($projetos as $indice => $projeto) {
 
         // Verifica se o projeto já recebeu uma resposta
         $temResposta = isset($projeto["resposta"]);
 
-        // Mostra apenas os projetos da aba selecionada
+        // Exibe somente os projetos da aba escolhida
         if (
             ($aba == "respondidos" && $temResposta) ||
-            ($aba != "respondidos" && !$temResposta)
+            ($aba == "aguardando" && !$temResposta)
         ) {
 
             $encontrou = true;
@@ -148,43 +244,39 @@ $aba = isset($_GET["aba"]) ? $_GET["aba"] : "aguardando";
                 <?= nl2br(htmlspecialchars($projeto["descricao"])) ?>
             </p>
 
-            <p>
-                <strong>Status:</strong>
-                <?= htmlspecialchars($projeto["status"]) ?>
-            </p>
-
             <?php if ($temResposta) { ?>
 
-                <!-- Mostra a resposta já enviada -->
-                <p>
-                    <strong>Resposta da equipe:</strong>
-                    <?= htmlspecialchars($projeto["resposta"]) ?>
-                </p>
+                <!-- Se foi recusado, mostra apenas o resultado -->
+                <?php if ($projeto["resposta"] == "REPROVAR") { ?>
 
-                <p>
-                    <strong>Orçamento:</strong>
-                    R$ 
-                    <?= isset($projeto["orcamento"])
+                    <p><strong>Resultado:</strong> Recusado.</p>
 
-                        // converte o valor para número decimal
-                        ? number_format((float)$projeto["orcamento"],   // printa valor do orçamento
-                        2,   // define o número de casas decimais
-                        ',', // define o separador decimal
-                        '.'  // define o separador de milhar
-                        )
+                <?php } else { ?>
 
-                        // caso não tenha orçamento, exibe a mensagem
-                        : "Não informado" ?>
-                </p>
+                    <!-- Para os aprovados, mostra o resultado e o orçamento -->
+                    <p><strong>Resultado:</strong> Aprovado!</p>
+
+                    <p>
+                        <strong>Orçamento:</strong>
+                        R$ <?= number_format(
+                            (float)($projeto["orcamento"] ?? 0),
+                            2,
+                            ',',
+                            '.'
+                        ) ?>
+                    </p>
+
+                <?php } ?>
 
             <?php } else { ?>
 
-                <!-- Formulário para responder ao projeto -->
-                <form method="POST">
+                <!-- Formulário para avaliar o projeto -->
+                <form method="POST" class="form-resposta">
 
-                    <!-- Identifica qual projeto receberá a resposta -->
+                    <input type="hidden" name="acao" value="responder">
                     <input type="hidden" name="indice"
                            value="<?= $indice ?>">
+                    <input type="hidden" name="aba" value="<?= $aba ?>">
 
                     <label>Resposta final:</label>
 
@@ -193,16 +285,42 @@ $aba = isset($_GET["aba"]) ? $_GET["aba"] : "aguardando";
                         <option value="REPROVAR">REPROVAR</option>
                     </select>
 
-                    <br><br>
+                    <!-- Campo que desaparece ao selecionar REPROVAR -->
+                    <div class="campo-orcamento">
+                        <label>Orçamento do projeto (R$):</label>
 
-                    <label>Orçamento do projeto (R$):</label>
-                    <input type="number" name="orcamento" min="0" step="0.01" required>
+                        <input type="number"
+                               name="orcamento"
+                               min="0"
+                               step="0.01"
+                               required>
+                    </div>
+
+                    <br>
 
                     <button type="submit">Enviar resposta</button>
 
                 </form>
 
+                <p>
+                    <strong>Status:</strong>
+                    Aguardando avaliação
+                </p>
+
             <?php } ?>
+
+            <!-- Botão para excluir somente este projeto -->
+            <form method="POST"
+                  onsubmit="return confirm('Deseja excluir este projeto?');">
+
+                <input type="hidden" name="acao" value="excluir_um">
+                <input type="hidden" name="indice"
+                       value="<?= $indice ?>">
+                <input type="hidden" name="aba" value="<?= $aba ?>">
+
+                <button type="submit">Excluir este projeto</button>
+
+            </form>
 
             <hr>
 
@@ -210,13 +328,50 @@ $aba = isset($_GET["aba"]) ? $_GET["aba"] : "aguardando";
         }
     }
 
-    // Mostra uma mensagem caso a aba esteja vazia
+    // Mensagem para abas sem projetos
     if (!$encontrou) {
     ?>
 
         <p>Nenhum projeto nesta aba.</p>
 
     <?php } ?>
+
+    <script>
+        // Localiza todos os formulários de resposta
+        document.querySelectorAll(".form-resposta").forEach(function(form) {
+
+            // Localiza o seletor de aprovação ou reprovação
+            const seletor = form.querySelector('[name="resposta"]');
+
+            // Localiza o campo do orçamento
+            const campo = form.querySelector(".campo-orcamento");
+
+            // Localiza o campo onde o valor será digitado
+            const input = campo.querySelector('[name="orcamento"]');
+
+            // Atualiza a exibição quando a resposta muda
+            function atualizarOrcamento() {
+
+                // Verifica se a equipe escolheu reprovar
+                const recusado = seletor.value == "REPROVAR";
+
+                // Esconde o orçamento quando o projeto é recusado
+                campo.style.display = recusado ? "none" : "block";
+
+                // Desativa o campo para não enviar orçamento na recusa
+                input.disabled = recusado;
+
+                // Exige orçamento somente para projetos aprovados
+                input.required = !recusado;
+            }
+
+            // Executa a função quando o seletor é alterado
+            seletor.addEventListener("change", atualizarOrcamento);
+
+            // Define a exibição inicial do orçamento
+            atualizarOrcamento();
+        });
+    </script>
 
 </body>
 </html>
