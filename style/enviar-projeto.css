@@ -38,12 +38,12 @@ nav {
     gap: 30px;
     padding: 25px 0;
     background-color: #030817;
-    border-bottom: 1px solid #f7f7f8;
+    border-bottom: 1px solid #030817;
 }
 
 nav a {
     color: #F2F7FF;
-    font-size: 15px;
+    font-size: 16px;
     transition: 0.3s;
 }
 
