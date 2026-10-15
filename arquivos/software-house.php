@@ -90,9 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Envie sua ideia de projeto</h1>
 
     <p>
-        Conte sua ideia de projeto para nós! Preencha o formulário abaixo 
-        <br><br>
-        com as informações necessárias e nossa equipe irá avaliar sua proposta.
+        Conte sua ideia de projeto para nós! <br> Preencha o formulário abaixo com as informações necessárias e nossa equipe irá avaliar sua proposta.
     </p>
 
     <!-- Formulário para receber a ideia do cliente -->
