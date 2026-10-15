@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <label>Descreva sua ideia:</label>
         <br>
-        <textarea name="descricao" rows="8" cols="40" required></textarea>
+        <textarea name="descricao" rows="15" cols="60" required></textarea>
         <br><br>
 
         <button type="submit">Enviar</button>
