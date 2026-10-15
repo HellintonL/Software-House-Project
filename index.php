@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APD</title>
-    <link rel="stylesheet" href="empresa.css">
-    <link rel="shortcut icon" href="imagens/cabecalho.png" type="image/x-icon">
+    <link rel="stylesheet" href="style/empresa.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -89,7 +89,7 @@
                     </p>
 
                     
-                    <a href="/arquivos/projeto-cliente.php">Apresentar projeto</a>
+                    <a href="arquivos/software-house.php">Apresentar projeto</a>
                 </div>
 
                 <!-- PROJETO 2-->
