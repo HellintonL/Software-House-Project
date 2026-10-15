@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Lê os projetos que já estão salvos no arquivo JSON
     $conteudoJson = file_get_contents(
-       dirname(__DIR__) . "/dados/projetos.json"
+        dirname(__DIR__) . "/dados/projetos.json"
     );
 
     // Transforma o conteúdo JSON em um array PHP
@@ -57,21 +57,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- --------- CSS ------------ -->
 
     <style>
-
         <!-- VISUAL DA BARRA DE NAVEGAÇÃO-->
-        nav {
-            background-color: #222;
-            padding: 15px;
+        nav
+        {
+        background-color:
+        #222;
+        padding:
+        15px;
         }
-
-        nav a {
-            color: #10006d;
-            text-decoration: none;
-            margin-right: 20px;
+        nav
+        a
+        {
+        color:
+        #10006d;
+        text-decoration:
+        none;
+        margin-right:
+        20px;
         }
-
-        nav a:hover {
-            color: #1d00c4;
+        nav
+        a:hover
+        {
+        color:
+        #1d00c4;
         }
     </style>
 
@@ -79,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-        <!-- Barra de navegação -->
+    <!-- Barra de navegação -->
     <nav>
         <a href="software-house.php">Enviar projeto</a>
         <a href="equipe-ti.php">Área da equipe de T.I.</a>
@@ -90,7 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Envie sua ideia de projeto</h1>
 
     <p>
-        Conte sua ideia de projeto para nós! <br> Preencha o formulário abaixo com as informações necessárias e nossa equipe irá avaliar sua proposta.
+    <h2>Conte sua ideia de projeto para nós!</h2>
+    <br><br>
+    Preencha o formulário abaixo com as informações necessárias e nossa equipe irá avaliar sua proposta.
     </p>
 
     <!-- Formulário para receber a ideia do cliente -->
