@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APD</title>
     <link rel="stylesheet" href="style/empresa.css">
-    <link rel="shortcut icon" href="imagens/cabecalho.png" type="image/x-icon" width="230px" height="100px">
+    <link rel="shortcut icon" href="imagens/logo-aba.png" type="image/x-icon" width="230px" height="100px">
 </head>
 <body>
     <header>
