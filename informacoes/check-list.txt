@@ -1,83 +1,102 @@
-CHECKLIST DO PROJETO
-====================
+LISTA DE TAREFAS DO PROJETO
+============================
 
-Marque cada item com [x] quando ele estiver concluído.
-Mantenha [ ] nos itens que ainda precisam ser feitos.
+Marque uma tarefa com [x] quando ela estiver pronta.
+Deixe [ ] nas tarefas que ainda precisam ser feitas.
+Siga a ordem da lista para construir o projeto passo a passo.
 
-1. FORMULÁRIO DE PROJETO
+1. ORGANIZAR O PROJETO
 
-[ ] 1.1 Fazer o formulário de projeto-cliente.php receber os dados preenchidos.
-[ ] 1.2 Salvar os dados enviados pelo formulário em dados/projetos.json.
-[ ] 1.3 Fazer projeto-cliente.php usar o mesmo arquivo dados/projetos.json das outras páginas.
-[ ] 1.4 Padronizar os nomes dos campos entre o formulário e os arquivos PHP.
-[ ] 1.5 Exibir uma mensagem informando que o projeto foi enviado.
-[ ] 1.6 Adicionar uma data simples de envio ao projeto.
+[ ] 1.1 Conferir se os nomes das informações são iguais em todas as páginas.
+[ ] 1.2 Decidir quais informações serão guardadas em cada arquivo de dados.
+[ ] 1.3 Conferir se os arquivos de dados existem e estão vazios ou prontos para receber informações.
+[ ] 1.4 Corrigir os endereços dos arquivos de aparência das páginas.
+[ ] 1.5 Conferir se cada página está usando o arquivo de aparência correto.
 
-2. CADASTRO DE EMPRESAS OU USUÁRIOS
+2. FAZER O CLIENTE ENVIAR UM PROJETO
 
-[ ] 2.1 Fazer o formulário de cadastro.php receber os dados preenchidos.
-[ ] 2.2 Salvar os dados do cadastro em dados/cadastro.json.
-[ ] 2.3 Exibir os cadastros salvos na tela.
-[ ] 2.4 Conferir se cadastro.php está ligado aos arquivos corretos.
+[ ] 2.1 Fazer o formulário de projeto-cliente.php receber o nome, o CPF, o tema e a descrição.
+[ ] 2.2 Conferir se cada informação preenchida tem o nome correto para ser salva.
+[ ] 2.3 Fazer essa página usar o arquivo dados/projetos.json.
+[ ] 2.4 Salvar o projeto preenchido no arquivo dados/projetos.json.
+[ ] 2.5 Guardar também a data em que o projeto foi enviado.
+[ ] 2.6 Mostrar uma mensagem dizendo que o projeto foi enviado.
 
-3. CONSULTA DE PROJETOS
+3. MOSTRAR OS PROJETOS PARA A EQUIPE
 
-[ ] 3.1 Corrigir o caminho do arquivo JSON usado em consultar-projeto.php.
-[ ] 3.2 Permitir que o cliente consulte um projeto pelo e-mail.
-[ ] 3.3 Mostrar o nome do projeto na consulta.
-[ ] 3.4 Mostrar a descrição do projeto na consulta.
-[ ] 3.5 Mostrar o status do projeto na consulta.
-[ ] 3.6 Mostrar o orçamento quando a equipe aprovar o projeto.
-[ ] 3.7 Mostrar o prazo quando o projeto for aprovado.
-[ ] 3.8 Exibir uma mensagem quando nenhum projeto for encontrado.
+[ ] 3.1 Fazer os projetos enviados aparecerem na página da equipe de T.I.
+[ ] 3.2 Mostrar o nome, o e-mail e a descrição de cada projeto.
+[ ] 3.3 Mostrar uma mensagem quando ainda não houver projetos para avaliar.
+[ ] 3.4 Mostrar uma mensagem quando ainda não houver projetos respondidos.
 
-4. ÁREA DA EQUIPE DE T.I.
+4. FAZER A EQUIPE RESPONDER AOS PROJETOS
 
-[ ] 4.1 Fazer o botão de aprovação salvar o orçamento no arquivo JSON.
-[ ] 4.2 Adicionar o prazo do projeto na resposta da equipe.
-[ ] 4.3 Fazer o botão de reprovação alterar o status no arquivo JSON.
-[ ] 4.4 Permitir excluir um projeto específico.
-[ ] 4.5 Permitir excluir todos os projetos.
-[ ] 4.6 Exibir uma mensagem quando não houver projetos aguardando avaliação.
-[ ] 4.7 Exibir uma mensagem quando não houver projetos respondidos.
+[ ] 4.1 Fazer a opção “aprovar” mudar a situação do projeto.
+[ ] 4.2 Fazer a aprovação guardar o valor do orçamento.
+[ ] 4.3 Permitir que a equipe informe o prazo do projeto.
+[ ] 4.4 Fazer a opção “reprovar” mudar a situação do projeto.
+[ ] 4.5 Conferir se os projetos aprovados aparecem na lista de projetos respondidos.
+[ ] 4.6 Conferir se os projetos reprovados aparecem na lista de projetos respondidos.
 
-5. EMPRESAS E ARQUIVO dados-json.php
+5. PERMITIR QUE O CLIENTE CONSULTE O PROJETO
 
-[ ] 5.1 Corrigir a exibição do e-mail em dados-json.php.
-[ ] 5.2 Corrigir o caminho de dados/empresas.json em dados-json.php.
-[ ] 5.3 Fazer dados-json.php exibir corretamente as empresas cadastradas.
-[ ] 5.4 Conferir se os dados do formulário de empresas são salvos corretamente.
+[ ] 5.1 Corrigir o endereço do arquivo que guarda os projetos.
+[ ] 5.2 Permitir que o cliente procure seu projeto usando o e-mail.
+[ ] 5.3 Mostrar o nome do projeto encontrado.
+[ ] 5.4 Mostrar a descrição do projeto encontrado.
+[ ] 5.5 Mostrar a situação atual do projeto.
+[ ] 5.6 Mostrar o orçamento quando o projeto for aprovado.
+[ ] 5.7 Mostrar o prazo quando o projeto for aprovado.
+[ ] 5.8 Mostrar uma mensagem quando nenhum projeto for encontrado.
+[ ] 5.9 Conferir se a resposta da equipe aparece corretamente para o cliente.
 
-6. LINKS E ARQUIVOS DO PROJETO
+6. PERMITIR EXCLUIR PROJETOS
 
-[ ] 6.1 Criar o arquivo ou a página do link atividades/idade.php.
-[ ] 6.2 Definir o endereço do link LinkedIn.
-[ ] 6.3 Corrigir os links antigos de menu.html.
-[ ] 6.4 Corrigir os links antigos de cadastro.php.
-[ ] 6.5 Corrigir os caminhos dos arquivos CSS que estão em locais incorretos.
-[ ] 6.6 Conferir se todas as páginas possuem seus arquivos CSS.
+[ ] 6.1 Permitir que a equipe exclua apenas um projeto.
+[ ] 6.2 Permitir que a equipe exclua todos os projetos.
+[ ] 6.3 Conferir se um projeto excluído desaparece da lista da equipe.
+[ ] 6.4 Conferir se um projeto excluído também desaparece da consulta do cliente.
 
-7. ORGANIZAÇÃO DOS DADOS
+7. CONFERIR AS FUNÇÕES PRINCIPAIS DO PROJETO
 
-[ ] 7.1 Organizar os dados salvos nos arquivos JSON.
-[ ] 7.2 Conferir se os nomes dos campos são iguais no formulário, no PHP e no JSON.
-[ ] 7.3 Conferir se projetos novos aparecem na equipe de T.I.
-[ ] 7.4 Conferir se as respostas da equipe aparecem na consulta do cliente.
+[ ] 7.1 Criar: enviar um projeto e guardar suas informações.
+[ ] 7.2 Consultar: mostrar os projetos que foram guardados.
+[ ] 7.3 Alterar: mudar a situação, o orçamento e o prazo do projeto.
+[ ] 7.4 Excluir: apagar um projeto.
+[ ] 7.5 Excluir todos: apagar todos os projetos guardados.
 
-8. FLUXO BÁSICO DE CRUD
+8. FAZER O CADASTRO FUNCIONAR
 
-[ ] 8.1 CREATE: cadastrar e salvar projetos no arquivo JSON.
-[ ] 8.2 READ: consultar e listar projetos salvos.
-[ ] 8.3 UPDATE: alterar o status, o orçamento e o prazo.
-[ ] 8.4 DELETE: excluir um projeto.
-[ ] 8.5 DELETE: excluir todos os projetos.
+[ ] 8.1 Fazer o formulário de cadastro.php receber as informações preenchidas.
+[ ] 8.2 Conferir se a página de cadastro está ligada aos arquivos corretos.
+[ ] 8.3 Guardar os dados preenchidos no arquivo dados/cadastro.json.
+[ ] 8.4 Mostrar na tela os cadastros que foram guardados.
 
-9. CONFERÊNCIA FINAL
+9. FAZER O CADASTRO DE EMPRESAS FUNCIONAR
 
-[ ] 9.1 Testar o envio de um novo projeto.
-[ ] 9.2 Testar a consulta de um projeto pelo e-mail.
-[ ] 9.3 Testar a aprovação de um projeto.
-[ ] 9.4 Testar a reprovação de um projeto.
-[ ] 9.5 Testar a exclusão de um projeto.
-[ ] 9.6 Testar os links principais do site.
-[ ] 9.7 Conferir se os arquivos JSON continuam sendo atualizados corretamente.
+[ ] 9.1 Corrigir o endereço do arquivo dados/empresas.json.
+[ ] 9.2 Conferir se as informações da empresa estão sendo guardadas corretamente.
+[ ] 9.3 Corrigir a exibição do e-mail da empresa.
+[ ] 9.4 Mostrar corretamente na tela as empresas cadastradas.
+
+10. CORRIGIR OS LINKS E AS PÁGINAS
+
+[ ] 10.1 Criar a página que será aberta pelo link “Ver orçamento e prazo”.
+[ ] 10.2 Colocar o endereço correto no link do LinkedIn.
+[ ] 10.3 Corrigir os links antigos do arquivo menu.html.
+[ ] 10.4 Corrigir os links antigos da página cadastro.php.
+[ ] 10.5 Conferir se todas as páginas estão mostrando seu estilo visual corretamente.
+
+11. FAZER A CONFERÊNCIA FINAL
+
+[ ] 11.1 Enviar um novo projeto pelo formulário.
+[ ] 11.2 Conferir se o projeto aparece para a equipe de T.I.
+[ ] 11.3 Aprovar um projeto e informar o orçamento.
+[ ] 11.4 Reprovar um projeto.
+[ ] 11.5 Consultar um projeto usando o e-mail.
+[ ] 11.6 Conferir se o orçamento e o prazo aparecem para o cliente.
+[ ] 11.7 Excluir apenas um projeto.
+[ ] 11.8 Excluir todos os projetos.
+[ ] 11.9 Fazer um cadastro e conferir se ele aparece na tela.
+[ ] 11.10 Clicar nos principais links do site e conferir se todos funcionam.
+[ ] 11.11 Conferir se as informações continuam guardadas corretamente nos arquivos de dados.
