@@ -80,7 +80,7 @@
                 <div class="card">
 
                     <div class="numero-projeto">
-                        01
+                
                     </div>
 
                     <h3>Apresentar projeto</h3>
@@ -97,7 +97,7 @@
                 <div class="card">
 
                     <div class="numero-projeto">
-                        02
+                        
                     </div>
 
                     <h3>Ver orçamento</h3>
