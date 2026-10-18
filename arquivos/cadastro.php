@@ -101,6 +101,17 @@
 
                         // Registra a data e hora do cadastro.
                 $empresa['data_cadastro'] = date('Y-m-d H:i:s');
+
+                        // Adição de cadastro a lista de empresas.
+                        // Acrescenta a empresa sem substituir os cadastros existentes.
+                $empresas[] = $empresa;
+
+                        // Converte o array de volta para JSON.
+                        // Formata os dados para facilitar a leitura do arquivo.
+                 $json = json_encode($empresas, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE |
+                    JSON_UNESCAPED_SLASHES);
+
+                        // Verifica se a conversão para JSON foi bem-sucedida.);
             }
         
 
