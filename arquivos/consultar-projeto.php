@@ -2,7 +2,7 @@
 <?php
 
 // Caminho do arquivo JSON
-$caminhoJson = __DIR__ . "/dados/projetos.json";
+$caminhoJson = __DIR__ . "/../dados/projetos.json";
 
 // Lê os projetos salvos
 $conteudoJson = file_get_contents($caminhoJson);
