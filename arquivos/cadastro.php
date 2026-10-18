@@ -25,17 +25,17 @@
     }
 
                         // Verifica se a página recebeu o formulário no metodo POST.
-                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-                                            // Recupera os dados do formulário e remove espaços em branco no início e no final.
-                            foreach ($empresa as $campo => $valor){
-                                $empresa[$campo] = trim($_POST[$campo] ?? '');
-                            }
+                        // Recupera os dados do formulário e remove espaços em branco no início e no final.
+        foreach ($empresa as $campo => $valor){
+        $empresa[$campo] = trim($_POST[$campo] ?? '');
+        }
 
-                                            //Verifica se todos os campos obrigatórios foram preenchidos.
-                         if ($empresa['empresa'] === '' || $empresa['responsavel'] === '' ||
-                            $empresa['email'] === '' || $empresa['telefone'] === '' ||
-        $empresa['area'] === '' || $empresa['descricao'] === '') 
+                        //Verifica se todos os campos obrigatórios foram preenchidos.
+        if ($empresa['empresa'] === '' || $empresa['responsavel'] === '' ||
+            $empresa['cnpj'] === '' || $empresa['email'] === '' || $empresa['telefone'] === '' || 
+            $empresa['area'] === '' || $empresa['descricao'] === '') 
     {
         $mensagem = 'Preencha todos os campos obrigatórios.';
         $tipoMensagem = 'erro';
