@@ -18,7 +18,7 @@
             <a href="#sobre">Sobre a empresa</a>
             <a href="#projetos">Apresentar projeto</a>
             <a href="#contato">Contato</a>
-            <a href="#cadastro">Cadastro</a>
+            <a href="arquivos/cadastro.php">Cadastro</a>
         </nav>
     </header>
     
