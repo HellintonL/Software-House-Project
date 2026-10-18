@@ -1,13 +1,13 @@
 <?php
     $arquivo = __DIR__ . '/../dados/empresas.json';
 
-        //define a mensagem que irá aparecer ao usuário.
+                        //define a mensagem que irá aparecer ao usuário.
     $mensagem = '';
 
-        // Define o tipo de mensagem, sucesso ou erro.
+                        // Define o tipo de mensagem, sucesso ou erro.
     $tipoMensagem = '';
 
-        // Inicia os campos vazios para o formulário.
+                        // Inicia os campos vazios para o formulário.
     $empresa = [
         'empresa' => '',
         'responsavel' => '',
@@ -18,22 +18,22 @@
         'descricao' => ''
     ];
 
-        // Converte caracteres especiais em entidades HTML, evita que textos inseridos pelo usuário
-        // Sejam interpretados como código HTML ou JavaScript.
+                        // Converte caracteres especiais em entidades HTML, evita que textos inseridos pelo
+                        // Usuário sejam interpretados como código HTML ou JavaScript.
     function escapar($valor) {
         return htmlspecialchars((string) $valor, ENT_QUOTES, 'UTF-8');
     }
 
-        // Verifica se a página recebeu o formulário no metodo POST.
+                        // Verifica se a página recebeu o formulário no metodo POST.
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        // Recupera os dados do formulário e remove espaços em branco no início e no final.
+                        // Recupera os dados do formulário e remove espaços em branco no início e no final.
         foreach ($empresa as $campo => $valor){
             $empresa[$campo] = trim($_POST[$campo] ?? '');
         }
     }
 
-    //Verifica se todos os campos obrigatórios foram preenchidos.
+                        //Verifica se todos os campos obrigatórios foram preenchidos.
      if ($empresa['empresa'] === '' || $empresa['responsavel'] === '' ||
         $empresa['email'] === '' || $empresa['telefone'] === '' ||
         $empresa['area'] === '' || $empresa['descricao'] === '') 
@@ -42,13 +42,13 @@
         $tipoMensagem = 'erro';
     }
 
-        // Verifica se o e-mail informato está no formato correto.
+                        // Verifica se o e-mail informato está no formato correto.
     elseif(!filter_var($empresa['email'], FILTER_VALIDATE_EMAIL)) {
         $mensagem = 'Informe um endereço de e-mail válido.';
         $tipoMensagem = 'erro';
     }  
 
-        // Verifica se a área escolhida é uma das opções válidas.
+                        // Verifica se a área escolhida é uma das opções válidas.
     elseif(!in_array($empresa['area'],
             [
                 'tecnologia',
@@ -62,14 +62,33 @@
         $tipoMensagem = 'erro';
     }
 
-        // Leitura dos cadastros existentes.
-    else{
+                        // Leitura dos cadastros existentes.
+    else {
 
-        // Lê o conteúdo atual do arquivo JSON.
+                        // Lê o conteúdo atual do arquivo JSON.
         $conteudo = file_get_contents($arquivo);
 
-        // Converte o JSON em um array PHP.
+                        // Converte o JSON em um array PHP.
         $empresas = $conteudo !== false ? json_decode($conteudo, true) : null;
+
+                        // Verifica se o conteúdo foi lido e convertido corretamente e se 
+                        // representa uma lista de registros.
+        if (!is_array($empresas) || json_last_error() !== JSON_ERROR_NONE) {
+            $mensagem = 'Não foi possível ler os dados das empresas.';
+            $tipoMensagem = 'erro';
+        }
+
+                        // Leitura dos cadastros existentes.
+        else {
+
+                        // Lê o conteúdo atual do arquivo JSON.
+            $conteudo = file_get_contents($arquivo);
+
+                        // converte o JSON em um array PHP.
+            $empresas = $conteudo !== false ? json_decode($conteudo, true) : null;
+
+        }
+
     }
 
 
