@@ -33,7 +33,22 @@
         }
     }
 
-    
+    //Verifica se todos os campos obrigatórios foram preenchidos.
+     if ($empresa['empresa'] === '' || $empresa['responsavel'] === '' ||
+        $empresa['email'] === '' || $empresa['telefone'] === '' ||
+        $empresa['area'] === '' || $empresa['descricao'] === '') 
+    {
+        $mensagem = 'Preencha todos os campos obrigatórios.';
+        $tipoMensagem = 'erro';
+    }
+
+        // Verifica se o e-mail informato está no formato correto.
+    elseif(!filter_var($empresa['email'], FILTER_VALIDATE_EMAIL)) {
+        $mensagem = 'Informe um endereço de e-mail válido.';
+        $tipoMensagem = 'erro';
+    }  
+
+
 
 
 
