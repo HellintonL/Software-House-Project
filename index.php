@@ -1,22 +1,3 @@
-<?php
-    $arquivo = __DIR__ . '/../dados/empresas.json';
-
-        // Armazena a mensagem que será enviada ao usuário após o envio do formulário.
-    $mensagem = '';
-
-        // Define o tipo de mensagem, podendo ser 'sucesso' ou 'erro'.
-    $tipoMensagem = '';
-
-    $empresa = [
-        'empresa' => '',
-        'responsavel' => '',
-        'email' => '',
-        'telefone' => '',
-        'cnpj' => '',
-        'area' => '',
-        'descricao' => ''
-    ];
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
