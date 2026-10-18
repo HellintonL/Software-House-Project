@@ -85,10 +85,28 @@
             $conteudo = file_get_contents($arquivo);
 
                         // converte o JSON em um array PHP.
-            $empresas = $conteudo !== false ? json_decode($conteudo, true) : null;
+            $empresas = $conteudo !== false ? json_decode($conteudo, true) : null; 
+        
+                        // Verifica se o conteúdo foi lido e convertido
+                        // corretamente e se representa uma lista de registros.
+            if (!is_array($empresas) || json_last_error() !== JSON_ERROR_NONE) {
+                $mensagem = 'Não foi possível ler os dados das empresas.';
+                $tipoMensagem = 'erro';
+            }
+
+                        // Preparação para o novo cadastro.
+            else {
+                        // Gera um identificador para o novo registro.  
+                $empresa['id'] = uniqid('empresa_', true); 
+
+                        // Registra a data e hora do cadastro.
+                $empresa['data_cadastro'] = date('Y-m-d H:i:s');
+            }
+        
+
+            
 
         }
-
     }
 
 
