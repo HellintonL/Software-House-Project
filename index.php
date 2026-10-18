@@ -18,6 +18,7 @@
             <a href="#sobre">Sobre a empresa</a>
             <a href="#projetos">Apresentar projeto</a>
             <a href="#contato">Contato</a>
+            <a href="#cadastro">Cadastro</a>
         </nav>
     </header>
     
@@ -70,6 +71,14 @@
                             <h3>PHP</h3>
                             <p>Desenvolvimento de aplicações web.</p>
                         </div>
+                        <div class="habilidade">
+                            <h3>JavaScript</h3>
+                            <p>Interatividade e dinamismo em páginas web.</p>
+                        </div>
+                        <div class="habilidade">
+                            <h3>JSON</h3>
+                            <p>Armazenamento e troca de dados estruturados.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -107,6 +116,19 @@
                     <a href="atividades/idade.php">Ver orçamento e prazo</a>
                 </div>
 
+                <!-- PROJETO 3-->
+                <div class="card">
+
+                    <div class="numero-projeto">
+                        
+                    </div>
+
+                    <h3>Ver empresas</h3>
+                    <p>
+                        Aqui você pode ver as empresas que já apresentaram seus projetos, com informações sobre cada uma delas, como nome, contato e status do projeto.
+                    </p>
+                    <a href="arquivos/dados-json.php">Ver empresas</a>
+
                 </div>
             </section>
 
@@ -129,7 +151,7 @@
             Desenvolvido pelo <a href="https://look.devlook.xyz">Grupo APD</a>
         </p>
         <p>
-            HTML + CSS
+            HTML + CSS + PHP + JavaScript + JSON
         </p>
     </footer>  
 </body>
