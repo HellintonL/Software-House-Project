@@ -62,7 +62,15 @@
         $tipoMensagem = 'erro';
     }
 
-        //Leitura de erros existentes.
+        // Leitura dos cadastros existentes.
+    else{
+
+        // Lê o conteúdo atual do arquivo JSON.
+        $conteudo = file_get_contents($arquivo);
+
+        // Converte o JSON em um array PHP.
+        $empresas = $conteudo !== false ? json_decode($conteudo, true) : null;
+    }
 
 
 
