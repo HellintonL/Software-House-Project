@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,9 +12,7 @@
 <header>
     <div class="logo">
         <a href="../index.php">
-            <img src="../imagens/cabecalho.png"
-                 alt="Logo da APD"
-                 width="180">
+            <img src="../imagens/cabecalho.png" alt="Logo da APD" width="245px" height="100px">
         </a>
     </div>
 

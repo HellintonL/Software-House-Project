@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APD</title>
     <link rel="stylesheet" href="style/empresa.css">
-    <link rel="shortcut icon" href="imagens/logo.png" type="image/x-icon" width="230px" height="100px">
+    <link rel="shortcut icon" href="imagens/logo.png" type="image/x-icon" width="245px" height="100px">
 </head>
 <body>
     <header>
         <div class="logo">            
-            <img src="imagens/cabecalho.png" alt="logo da empresa" width="230px" height="100px">
+            <img src="imagens/cabecalho.png" alt="logo da empresa" width="245px" height="100px">
         </div>
 
         <nav>
