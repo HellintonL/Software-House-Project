@@ -134,6 +134,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | APD</title>
     <link rel="stylesheet" href="../style/empresa.css">
+    <link rel="stylesheet" href="../style/cadastro.css">
 </head>
 <body>
 

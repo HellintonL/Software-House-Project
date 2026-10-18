@@ -1,0 +1,153 @@
+/* ==============================
+   CADASTRO DE EMPRESAS
+   ============================== */
+
+.cadastro {
+    width: 90%;
+    max-width: 760px;
+    margin: 50px auto;
+    padding: 35px;
+    background-color: #ffffff;
+    color: #1c2b36;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+    box-sizing: border-box;
+}
+
+/* Título da seção */
+
+.cadastro .titulo-secao {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cadastro .titulo-secao p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.cadastro .titulo-secao h1 {
+    margin: 10px 0;
+    font-size: 30px;
+    color: #173746;
+}
+
+/* Formulário */
+
+.cadastro form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cadastro form label {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.cadastro form input,
+.cadastro form select,
+.cadastro form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5dc;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #1c2b36;
+    font-family: inherit;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Destaque ao selecionar um campo */
+
+.cadastro form input:focus,
+.cadastro form select:focus,
+.cadastro form textarea:focus {
+    outline: none;
+    border-color: #08D9E8;
+    box-shadow: 0 0 0 3px rgba(8, 217, 232, 0.15);
+}
+
+/* Área de descrição */
+
+.cadastro form textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* Botão de envio */
+
+.cadastro form button {
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #08D9E8;
+    color: #102b35;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.cadastro form button:hover {
+    background-color: #00bac9;
+    transform: translateY(-2px);
+}
+
+.cadastro form button:active {
+    transform: translateY(0);
+}
+
+/* Aviso de campos obrigatórios */
+
+.cadastro .aviso-cadastro {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #637381;
+}
+
+/* Mensagens exibidas pelo PHP */
+
+.cadastro .mensagem {
+    margin-bottom: 20px;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.cadastro .mensagem.sucesso {
+    background-color: #e8f8ed;
+    color: #216c39;
+    border: 1px solid #a8dfb7;
+}
+
+.cadastro .mensagem.erro {
+    background-color: #fff0f0;
+    color: #a4262c;
+    border: 1px solid #f0b4b4;
+}
+
+/* Ajustes para telas menores */
+
+@media (max-width: 600px) {
+    .cadastro {
+        width: 94%;
+        margin: 25px auto;
+        padding: 22px;
+    }
+
+    .cadastro .titulo-secao h1 {
+        font-size: 24px;
+    }
+
+    .cadastro form input,
+    .cadastro form select,
+    .cadastro form textarea {
+        font-size: 16px;
+    }
+}
