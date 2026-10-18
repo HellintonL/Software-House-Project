@@ -1,4 +1,23 @@
+<?php
+    $arquivo = __DIR__ . '/../dados/empresas.json';
 
+        //define a mensagem que irá aparecer ao usuário
+    $mensagem = '';
+
+    
+    $tipoMensagem = '';
+
+    $empresa = [
+        'empresa' => '',
+        'responsavel' => '',
+        'email' => '',
+        'telefone' => '',
+        'cnpj' => '',
+        'area' => '',
+        'descricao' => ''
+    ];
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
