@@ -1,12 +1,13 @@
 <?php
     $arquivo = __DIR__ . '/../dados/empresas.json';
 
-        //define a mensagem que irá aparecer ao usuário
+        //define a mensagem que irá aparecer ao usuário.
     $mensagem = '';
 
-    
+        // Define o tipo de mensagem, sucesso ou erro.
     $tipoMensagem = '';
 
+        // Inicia os campos vazios para o formulário.
     $empresa = [
         'empresa' => '',
         'responsavel' => '',
@@ -16,6 +17,25 @@
         'area' => '',
         'descricao' => ''
     ];
+
+        // Converte caracteres especiais em entidades HTML, evita que textos inseridos pelo usuário
+        // Sejam interpretados como código HTML ou JavaScript.
+    function escapar($valor) {
+        return htmlspecialchars((string) $valor, ENT_QUOTES, 'UTF-8');
+    }
+
+        // Verifica se a página recebeu o formulário no metodo POST.
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        // Recupera os dados do formulário e remove espaços em branco no início e no final.
+        foreach ($empresa as $campo => $valor){
+            $empresa[$campo] = trim($_POST[$campo] ?? '');
+        }
+    }
+
+    
+
+
 
 ?>
 <!DOCTYPE html>
