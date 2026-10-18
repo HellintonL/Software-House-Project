@@ -86,10 +86,12 @@
             <section id="projetos" class="projetos-secao">
                 <div class="projetos">
 
+                <!-- PROJETO 1-->
+
                 <div class="card">
 
-                    <div class="numero-projeto">
-                
+                    <div class="icone-projeto">
+                        ◇
                     </div>
 
                     <h3>Apresentar projeto</h3>
@@ -105,8 +107,8 @@
 
                 <div class="card">
 
-                    <div class="numero-projeto">
-                        
+                    <div class="icone-projeto">
+                        R$
                     </div>
 
                     <h3>Ver orçamento</h3>
@@ -119,8 +121,8 @@
                 <!-- PROJETO 3-->
                 <div class="card">
 
-                    <div class="numero-projeto">
-                        
+                    <div class="icone-projeto">
+                        ▦
                     </div>
 
                     <h3>Ver empresas</h3>
@@ -128,6 +130,22 @@
                         Aqui você pode ver as empresas que já apresentaram seus projetos, com informações sobre cada uma delas, como nome, contato e status do projeto.
                     </p>
                     <a href="arquivos/dados-json.php">Ver empresas</a>
+
+                </div>
+
+                <!-- PROJETO 4-->
+                <div class="card">
+
+                    <div class="icone-projeto">
+                        ♙
+                    </div>
+
+                    <h3>Cadastro</h3>
+                    <p>
+                         Cadastre-se para conhecer e acompanhar os serviços da Software Home.
+                    </p>
+                    <a href="arquivos/cadastro.php">Acessar cadastro</a>
+                </div>
 
                 </div>
             </section>

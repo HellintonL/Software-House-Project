@@ -250,12 +250,13 @@ section {
    border-color: #087FF5;
 }
 
-.numero-projeto {
-   color: #08D9E8;
-   font-size: 14px;
-   font-weight: bold;
-   margin-bottom: 20px;
+.icone-projeto {
+    color: #08D9E8;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
+
 
 .card h3 {
    font-size: 22px;
