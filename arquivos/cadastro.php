@@ -111,18 +111,39 @@
                  $json = json_encode($empresas, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE |
                     JSON_UNESCAPED_SLASHES);
 
-                        // Verifica se a conversão para JSON foi bem-sucedida.);
+                        // Gravação no arquivo.
+                        // LOCK_EX evita que dois processos escrevam
+                        // Simultaneamente no arquivo durante a gravação.
+            if ($json !== false && file_put_contents($arquivo, $json, LOCK_EX) !== false) {
+                $mensagem = 'Cadastro realizado com sucesso!';
+                $tipoMensagem = 'sucesso';
+
+                        // Limpa os campos do formulário após salvar.
+                foreach ($empresa as $campo => $valor) {
+                    if (in_array($campo,
+                        [
+                            'empresa',
+                            'responsavel',
+                            'email',
+                            'telefone',
+                            'cnpj',
+                            'area',
+                            'descricao'
+                        ], true)) {
+                        $empresa[$campo] = '';
+                    }
+                }
+
+            } 
+            else {
+
+                // Informa que a gravação não foi concluída.
+                $mensagem = 'Não foi possível salvar o cadastro. Verifique as permissões do servidor.';
+                $tipoMensagem = 'erro';
             }
-        
-
-            
-
         }
     }
-
-
-
-
+}
 
 ?>
 <!DOCTYPE html>
