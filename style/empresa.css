@@ -388,7 +388,7 @@ footer {
    /*PROJETOS*/
 
    .projetos {
-       flex-direction: column,
+       flex-direction: column;
    }
 
    /*BOTÕES*/
