@@ -48,6 +48,22 @@
         $tipoMensagem = 'erro';
     }  
 
+        // Verifica se a área escolhida é uma das opções válidas.
+    elseif(!in_array($empresa['area'],
+            [
+                'tecnologia',
+                'industria',
+                'comercio',
+                'servicos',
+                'outra'
+            ], true)
+    ) {
+        $mensagem = 'Selecione uma área de atuação válida.';
+        $tipoMensagem = 'erro';
+    }
+
+        //Leitura de erros existentes.
+
 
 
 
