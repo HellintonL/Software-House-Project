@@ -25,17 +25,16 @@
     }
 
                         // Verifica se a página recebeu o formulário no metodo POST.
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-                        // Recupera os dados do formulário e remove espaços em branco no início e no final.
-        foreach ($empresa as $campo => $valor){
-            $empresa[$campo] = trim($_POST[$campo] ?? '');
-        }
-    }
+                                            // Recupera os dados do formulário e remove espaços em branco no início e no final.
+                            foreach ($empresa as $campo => $valor){
+                                $empresa[$campo] = trim($_POST[$campo] ?? '');
+                            }
 
-                        //Verifica se todos os campos obrigatórios foram preenchidos.
-     if ($empresa['empresa'] === '' || $empresa['responsavel'] === '' ||
-        $empresa['email'] === '' || $empresa['telefone'] === '' ||
+                                            //Verifica se todos os campos obrigatórios foram preenchidos.
+                         if ($empresa['empresa'] === '' || $empresa['responsavel'] === '' ||
+                            $empresa['email'] === '' || $empresa['telefone'] === '' ||
         $empresa['area'] === '' || $empresa['descricao'] === '') 
     {
         $mensagem = 'Preencha todos os campos obrigatórios.';
@@ -76,40 +75,22 @@
         if (!is_array($empresas) || json_last_error() !== JSON_ERROR_NONE) {
             $mensagem = 'Não foi possível ler os dados das empresas.';
             $tipoMensagem = 'erro';
-        }
-
-                        // Leitura dos cadastros existentes.
-        else {
-
-                        // Lê o conteúdo atual do arquivo JSON.
-            $conteudo = file_get_contents($arquivo);
-
-                        // converte o JSON em um array PHP.
-            $empresas = $conteudo !== false ? json_decode($conteudo, true) : null; 
-        
-                        // Verifica se o conteúdo foi lido e convertido
-                        // corretamente e se representa uma lista de registros.
-            if (!is_array($empresas) || json_last_error() !== JSON_ERROR_NONE) {
-                $mensagem = 'Não foi possível ler os dados das empresas.';
-                $tipoMensagem = 'erro';
-            }
-
+        } else {
                         // Preparação para o novo cadastro.
-            else {
                         // Gera um identificador para o novo registro.  
-                $empresa['id'] = uniqid('empresa_', true); 
+            $empresa['id'] = uniqid('empresa_', true); 
 
                         // Registra a data e hora do cadastro.
-                $empresa['data_cadastro'] = date('Y-m-d H:i:s');
+            $empresa['data_cadastro'] = date('Y-m-d H:i:s');
 
                         // Adição de cadastro a lista de empresas.
                         // Acrescenta a empresa sem substituir os cadastros existentes.
-                $empresas[] = $empresa;
+            $empresas[] = $empresa;
 
                         // Converte o array de volta para JSON.
                         // Formata os dados para facilitar a leitura do arquivo.
-                 $json = json_encode($empresas, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE |
-                    JSON_UNESCAPED_SLASHES);
+            $json = json_encode($empresas, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE |
+                JSON_UNESCAPED_SLASHES);
 
                         // Gravação no arquivo.
                         // LOCK_EX evita que dois processos escrevam
