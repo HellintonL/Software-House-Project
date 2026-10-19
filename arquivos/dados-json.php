@@ -48,7 +48,7 @@
 
                                         // LÊ O ARQUIVO JSON EXISTENTE
 
-        $caminhoArquivo = (__DIR__ . "/dados/empresas.json");
+        $caminhoArquivo = (__DIR__ . "/../dados/empresas.json");
 
         $conteudoJson = file_get_contents($caminhoArquivo);
 
@@ -77,7 +77,7 @@
 
                                         // LÊ O JSON PARA EXIBIÇÃO
 
-    $caminhoArquivo = (__DIR__ . "/empresas.json");
+    $caminhoArquivo = (__DIR__ . "/../dados/empresas.json");
     $conteudoJson = file_get_contents($caminhoArquivo);
 
                                         // CONVERTE JSON PARA ARRAY PHP
