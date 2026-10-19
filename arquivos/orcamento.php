@@ -188,6 +188,15 @@ function moeda($valor) {
         <p>Preencha os dados para calcular o orçamento.</p>
     </header>
 
+    
+    <!-- Barra de navegação -->
+    <nav>
+        <a href="software-house.php">Enviar projeto</a>
+        <a href="equipe-ti.php">Área da equipe de T.I.</a>
+        <a href="consultar-projeto.php">Consultar projeto</a>
+        <a href="orcamento,php">Consultar Orçamento</a>
+        <a href="../index.php">Página inicial</a>
+
     <form method="POST">
         <section class="card">
             <h2>Dados do projeto</h2>
