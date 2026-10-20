@@ -1,6 +1,9 @@
 <?php
 
-// Variáveis para guardar os dados do orçamento
+function escapar($valor) {
+    return htmlspecialchars((string) $valor, ENT_QUOTES, 'UTF-8');
+}
+
 $projeto = "";
 $cliente = "";
 $descricao = "";
@@ -12,254 +15,148 @@ $total = 0;
 $calculado = false;
 $erro = "";
 
-// Verifica se o formulário foi enviado
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $projeto = trim($_POST["projeto"] ?? "");
+    $cliente = trim($_POST["cliente"] ?? "");
+    $descricao = trim($_POST["descricao"] ?? "");
 
-// Recebe os dados digitados no formulário
-$projeto = trim($_POST["projeto"] ?? "");
-$cliente = trim($_POST["cliente"] ?? "");
-$descricao = trim($_POST["descricao"] ?? "");
+    $quantidade = $_POST["quantidade"] ?? "";
+    $preco = $_POST["preco"] ?? "";
 
-$quantidade = $_POST["quantidade"] ?? "";
-$preco = $_POST["preco"] ?? "";
+    $preco = str_replace(",", ".", (string) $preco);
 
-// Permite digitar o preço com ponto ou vírgula
-$preco = str_replace(",", ".", $preco);
-
-// Verifica se os campos foram preenchidos
-if (
-$projeto == "" ||
-$cliente == "" ||
-$quantidade == "" ||
-$preco == ""
-) {
-
-$erro = "Preencha todos os campos obrigatórios.";
-
-} elseif (
-!is_numeric($quantidade) ||
-!is_numeric($preco)
-) {
-
-$erro = "Digite valores numéricos válidos.";
-
-} elseif (
-(float)$quantidade <= 0 ||
-(float)$quantidade != (int)$quantidade ||
-(float)$preco < 0
-) {
-
-$erro = "Confira a quantidade e o preço informados.";
-
-} else {
-
-// Converte os valores para números
-$quantidade = (int)$quantidade;
-$preco = (float)$preco;
-
-// Calcula o valor total
-$total = $quantidade * $preco;
-
-// Informa que o cálculo foi realizado
-$calculado = true;
+    if ($projeto === "" || $cliente === "" || $quantidade === "" || $preco === "") {
+        $erro = "Preencha todos os campos obrigatórios.";
+    } elseif (!is_numeric($quantidade) || !is_numeric($preco)) {
+        $erro = "Digite valores numéricos válidos.";
+    } elseif ((float) $quantidade <= 0 || (float) $quantidade != (int) $quantidade || (float) $preco < 0) {
+        $erro = "Confira a quantidade e o preço informados.";
+    } else {
+        $quantidade = (int) $quantidade;
+        $preco = (float) $preco;
+        $total = $quantidade * $preco;
+        $calculado = true;
+    }
 }
-}
-
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Orçamento de Projetos</title>
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento | APD</title>
+    <link rel="stylesheet" href="../style/empresa.css">
+    <link rel="stylesheet" href="../style/cadastro.css">
+    <link rel="shortcut icon" href="../imagens/logo.png" type="image/x-icon">
 </head>
-
 <body>
 
-<div class="container">
-
-<!-- Cabeçalho -->
 <header>
+    <div class="logo">
+        <a href="../index.php">
+            <img src="../imagens/cabecalho.png" alt="Logo da APD" width="245px" height="100px">
+        </a>
+    </div>
 
-<h1>Orçamento de Projetos</h1>
-
-<p>Preencha os dados para calcular o orçamento.</p>
-
+    <nav>
+        <a href="../index.php">Início</a>
+        <a href="../index.php#sobre">Sobre a empresa</a>
+        <a href="software-house.php">Enviar projeto</a>
+        <a href="equipe-ti.php">Área da equipe de T.I.</a>
+        <a href="consultar-projeto.php">Consultar projeto</a>
+        <a href="../index.php#contato">Contato</a>
+    </nav>
 </header>
 
-<!-- Menu do site -->
-<nav>
+<main>
+    <section class="cadastro">
+        <div class="titulo-secao">
+            <p>Calcule seu orçamento</p>
+            <h1>Orçamento de projeto</h1>
+            <p>Preencha os dados para calcular o valor do projeto.</p>
+        </div>
 
-<a href="software-house.php">Enviar projeto</a>
+        <?php if ($_SERVER["REQUEST_METHOD"] === "POST" && $erro !== ""): ?>
+            <p class="mensagem erro" role="status">
+                <?= escapar($erro) ?>
+            </p>
+        <?php endif; ?>
 
-<a href="equipe-t.i.php">Área da equipe de T.I.</a>
+        <form action="orcamento.php" method="POST">
+            <label for="projeto">Nome do projeto *</label>
+            <input
+                type="text"
+                id="projeto"
+                name="projeto"
+                value="<?= escapar($projeto) ?>"
+                required
+            >
 
-<a href="consultar-projeto.php">Consultar projeto</a>
+            <label for="cliente">Nome do cliente *</label>
+            <input
+                type="text"
+                id="cliente"
+                name="cliente"
+                value="<?= escapar($cliente) ?>"
+                required
+            >
 
-<a href="../index.php">Página inicial</a>
+            <label for="descricao">Descrição do projeto</label>
+            <textarea id="descricao" name="descricao" rows="4"><?= escapar($descricao) ?></textarea>
 
-</nav>
+            <label for="quantidade">Quantidade de unidades *</label>
+            <input
+                type="number"
+                id="quantidade"
+                name="quantidade"
+                min="1"
+                step="1"
+                value="<?= escapar((string) $quantidade) ?>"
+                required
+            >
 
-<!-- Formulário do orçamento -->
-<form action="orcamento.php" method="POST">
+            <label for="preco">Preço por unidade (R$) *</label>
+            <input
+                type="number"
+                id="preco"
+                name="preco"
+                min="0"
+                step="0.01"
+                value="<?= escapar((string) $preco) ?>"
+                required
+            >
 
-<section class="card">
+            <button type="submit">Calcular orçamento</button>
 
-<h2>Dados do projeto</h2>
+            <p class="aviso-cadastro">
+                * Campos obrigatórios.
+            </p>
+        </form>
 
-<div class="campo">
+        <?php if ($_SERVER["REQUEST_METHOD"] === "POST" && $calculado): ?>
+            <div class="mensagem sucesso" role="status" style="margin-top: 25px;">
+                <h2 style="margin-bottom: 15px; color: #173746;">Resumo do orçamento</h2>
 
-<label for="projeto">Nome do projeto:</label>
+                <p><strong>Projeto:</strong> <?= escapar($projeto) ?></p>
+                <p><strong>Cliente:</strong> <?= escapar($cliente) ?></p>
+                <p><strong>Descrição:</strong> <?= nl2br(escapar($descricao)) ?></p>
+                <p><strong>Quantidade:</strong> <?= $quantidade ?></p>
+                <p><strong>Preço por unidade:</strong> R$ <?= number_format($preco, 2, ',', '.') ?></p>
+                <p><strong>Total:</strong> R$ <?= number_format($total, 2, ',', '.') ?></p>
 
-<input
-type="text"
-id="projeto"
-name="projeto"
-value="<?= htmlspecialchars($projeto) ?>"
-required
->
+                <button type="button" style="margin-top: 20px;" onclick="window.print()">
+                    Imprimir orçamento
+                </button>
+            </div>
+        <?php endif; ?>
+    </section>
+</main>
 
-</div>
-
-<div class="campo">
-
-<label for="cliente">Nome do cliente:</label>
-
-<input
-type="text"
-id="cliente"
-name="cliente"
-value="<?= htmlspecialchars($cliente) ?>"
-required
->
-
-</div>
-
-<div class="campo">
-
-<label for="descricao">Descrição do projeto:</label>
-
-<textarea
-id="descricao"
-name="descricao"
-rows="4"
-><?= htmlspecialchars($descricao) ?></textarea>
-
-</div>
-
-</section>
-
-<section class="card">
-
-<h2>Custos do projeto</h2>
-
-<div class="campo">
-
-<label for="quantidade">Quantidade de unidades:</label>
-
-<input
-type="number"
-id="quantidade"
-name="quantidade"
-min="1"
-step="1"
-value="<?= htmlspecialchars((string)$quantidade) ?>"
-required
->
-
-</div>
-
-<div class="campo">
-
-<label for="preco">Preço por unidade (R$):</label>
-
-<input
-type="number"
-id="preco"
-name="preco"
-min="0"
-step="0.01"
-value="<?= htmlspecialchars((string)$preco) ?>"
-required
->
-
-</div>
-
-</section>
-
-<button type="submit">
-Calcular orçamento
-</button>
-
-</form>
-
-<!-- Mostra o resultado ou o erro -->
-<?php if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-
-<?php if ($calculado) { ?>
-
-<section class="card resultado">
-
-<h2>Resumo do orçamento</h2>
-
-<p>
-<strong>Projeto:</strong>
-<?= htmlspecialchars($projeto) ?>
-</p>
-
-<p>
-<strong>Cliente:</strong>
-<?= htmlspecialchars($cliente) ?>
-</p>
-
-<p>
-<strong>Descrição:</strong>
-<?= nl2br(htmlspecialchars($descricao)) ?>
-</p>
-
-<p>
-<strong>Quantidade:</strong>
-<?= $quantidade ?>
-</p>
-
-<p>
-<strong>Preço por unidade:</strong>
-R$ <?= number_format($preco, 2, ",", ".") ?>
-</p>
-
-<p class="total">
-Total: R$ <?= number_format($total, 2, ",", ".") ?>
-</p>
-
-<button
-type="button"
-class="nao-imprimir"
-onclick="window.print()"
->
-Imprimir orçamento
-</button>
-
-</section>
-
-<?php } else { ?>
-
-<p class="erro">
-<?= htmlspecialchars($erro) ?>
-</p>
-
-<?php } ?>
-
-<?php } ?>
-
-</div>
+<footer>
+    <p>Desenvolvido pelo Grupo APD</p>
+    <p>HTML + CSS + PHP + JSON</p>
+</footer>
 
 </body>
 </html>
