@@ -116,7 +116,7 @@
                     <p>
                         Analisamos sua proposta com atenção para elaborar um orçamento, com valores e prazos de acordo com as necessidades do seu projeto. 
                     </p>
-                    <a href="atividades/idade.php">Ver orçamento e prazo</a>
+                    <a href="arquivos/orcamento.php">Ver orçamento e prazo</a>
                 </div>
 
                 <!-- PROJETO 3-->
