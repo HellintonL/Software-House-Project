@@ -19,6 +19,7 @@
             <a href="#projetos">Apresentar projeto</a>
             <a href="#contato">Contato</a>
             <a href="arquivos/cadastro.php">Cadastro</a>
+            <a href="arquivos/orcamento.php">Otçamento</a>
         </nav>
     </header>
     
