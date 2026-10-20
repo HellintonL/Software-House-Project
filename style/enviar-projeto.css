@@ -108,6 +108,10 @@ input:focus {
     border-color: #08D9E8;
 }
 
+.descricao {
+    background-color: #001d6d;
+}
+
 /*===============================*/
 /*            BOTÃO              */
 /*===============================*/
