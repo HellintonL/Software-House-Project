@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/enviar-projeto.css">
-    <title>Enviar Projeto</title>
+    <title>Solicitação de projeto</title>
 
     <!-- --------- CSS ------------ -->
 
@@ -89,19 +89,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Barra de navegação -->
     <nav>
-        <a href="software-house.php">Enviar projeto</a>
-        <a href="equipe-ti.php">Área da equipe de T.I.</a>
+        <a href="../index.php">Início</a>
+        <a href="cadastro.php">Cadastro</a>
+        <a href="software-house.php">Solicitar projeto</a>
+        <a href="orcamento.php">Orçamento</a>
         <a href="consultar-projeto.php">Consultar projeto</a>
-        <a href="../index.php">Página inicial</a>
     </nav>
 
-    <h1>Envie sua ideia de projeto</h1>
+    <h1>Etapa 2 do processo</h1>
 
     <p>
         <br><br>
-    <h2>Conte sua ideia de projeto para nós!</h2>
+    <h2>Envie sua ideia de projeto</h2>
     
-    Preencha o formulário abaixo com as informações necessárias e nossa equipe irá avaliar sua proposta.
+    Preencha o formulário abaixo com as informações da demanda e nossa equipe irá avaliar sua proposta.
     <br>
     </p>
 
@@ -125,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <textarea name="descricao" rows="12" cols="55" required></textarea>
         <br><br>
 
-        <button type="submit">Enviar</button>
+        <button type="submit">Enviar solicitação</button>
 
     </form>
 
