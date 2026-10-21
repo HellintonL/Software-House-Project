@@ -110,6 +110,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: equipe-ti.php?aba=respondidos");
         exit;
     }
+
+    $nome = $_POST["nome"];
+    $email = $_POST["email"];
+    $nome_projeto = $_POST["nome_projeto"];
+    $descricao = $_POST["descricao"];
+
+    $novoProjeto = [
+        "nome" => $nome,
+        "email" => $email,
+        "nome_projeto" => $nome_projeto,
+        "descricao" => $descricao,
+        "status" => "Aguardando avaliação"
+    ];
+
+    $conteudoJson = file_get_contents(
+        dirname(__DIR__) . "/dados/projetos.json"
+    );
+
+    $projetos = json_decode($conteudoJson, true);
+    $projetos[] = $novoProjeto;
+
+    $jsonAtualizado = json_encode(
+        $projetos,
+        JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+    );
+
+    file_put_contents(
+        dirname(__DIR__) . "/dados/projetos.json",
+        $jsonAtualizado
+    );
+
+    $mensagem = "Projeto enviado com sucesso!";
+
 }
 
 // Define qual aba será exibida

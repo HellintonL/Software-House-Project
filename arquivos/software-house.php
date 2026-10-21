@@ -17,30 +17,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "status" => "Aguardando avaliação"
     ];
 
-    // Lê os projetos que já estão salvos no arquivo JSON
     $conteudoJson = file_get_contents(
         dirname(__DIR__) . "/dados/projetos.json"
     );
 
-    // Transforma o conteúdo JSON em um array PHP
     $projetos = json_decode($conteudoJson, true);
 
-    // Adiciona o novo projeto ao array
     $projetos[] = $novoProjeto;
 
-    // Transforma o array PHP novamente em JSON
     $jsonAtualizado = json_encode(
         $projetos,
         JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
     );
 
-    // Salva os projetos atualizados no arquivo JSON
     file_put_contents(
         dirname(__DIR__) . "/dados/projetos.json",
         $jsonAtualizado
     );
 
-    // Exibe uma mensagem de confirmação
     $mensagem = "Projeto enviado com sucesso!";
 }
 ?>
@@ -51,90 +45,69 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/enviar-projeto.css">
-    <title>Solicitação de projeto</title>
-
-    <!-- --------- CSS ------------ -->
-
-    <style>
-        <!-- VISUAL DA BARRA DE NAVEGAÇÃO-->
-        nav
-        {
-        background-color:
-        #222;
-        padding:
-        15px;
-        }
-        nav
-        a
-        {
-        color:
-        #10006d;
-        text-decoration:
-        none;
-        margin-right:
-        20px;
-        }
-        nav
-        a:hover
-        {
-        color:
-        #1d00c4;
-        }
-    </style>
-
+    <title>Solicitação de projeto | APD</title>
+    <link rel="stylesheet" href="../style/empresa.css">
+    <link rel="stylesheet" href="../style/cadastro.css">
 </head>
 
 <body>
+    <header>
+        <div class="logo">
+            <a href="../index.php">
+                <img src="../imagens/cabecalho.png" alt="Logo da APD" width="245px" height="100px">
+            </a>
+        </div>
 
-    <!-- Barra de navegação -->
-    <nav>
-        <a href="../index.php">Início</a>
-        <a href="cadastro.php">Cadastro</a>
-        <a href="software-house.php">Solicitar projeto</a>
-        <a href="orcamento.php">Orçamento</a>
-        <a href="consultar-projeto.php">Consultar projeto</a>
-    </nav>
+        <nav>
+            <a href="../index.php">Início</a>
+            <a href="cadastro.php">Cadastro</a>
+            <a href="software-house.php">Solicitar projeto</a>
+            <a href="equipe-ti.php">Análise interna</a>
+            <a href="orcamento.php">Orçamento</a>
+            <a href="contra-proposta.php">Contra proposta</a>
+            <a href="contrato.php">Contrato</a>
+            <a href="financeiro.php">Financeiro</a>
+            <a href="desenvolvimento.php">Desenvolvimento</a>
+            <a href="consultar-projeto.php">Consultar projeto</a>
+        </nav>
+    </header>
 
-    <h1>Etapa 2 do processo</h1>
+    <main>
+        <section class="cadastro">
+            <div class="titulo-secao">
+                <p>Etapa 2 do processo</p>
+                <h1>Solicitação do projeto</h1>
+                <p>Preencha o formulário com as informações da demanda e nossa equipe irá avaliar a proposta.</p>
+            </div>
 
-    <p>
-        <br><br>
-    <h2>Envie sua ideia de projeto</h2>
-    
-    Preencha o formulário abaixo com as informações da demanda e nossa equipe irá avaliar sua proposta.
-    <br>
-    </p>
+            <?php if (isset($mensagem)) { ?>
+                <p class="mensagem sucesso" role="status"><?= $mensagem ?></p>
+            <?php } ?>
 
-    <!-- Formulário para receber a ideia do cliente -->
-    <form method="POST">
+            <form method="POST">
+                <label for="nome">Seu nome *</label>
+                <input type="text" id="nome" name="nome" required>
 
-        <label>Seu nome:</label>
-        <input type="text" name="nome" required>
-        <br><br>
+                <label for="email">Seu e-mail *</label>
+                <input type="email" id="email" name="email" required>
 
-        <label>Seu e-mail:</label>
-        <input type="email" name="email" required>
-        <br><br>
+                <label for="nome_projeto">Nome do projeto *</label>
+                <input type="text" id="nome_projeto" name="nome_projeto" required>
 
-        <label>Nome do projeto:</label>
-        <input type="text" name="nome_projeto" required>
-        <br><br>
+                <label for="descricao">Descreva sua ideia *</label>
+                <textarea id="descricao" name="descricao" rows="12" required></textarea>
 
-        <label>Descreva sua ideia:</label>
-        <br>
-        <textarea name="descricao" rows="12" cols="55" required></textarea>
-        <br><br>
+                <button type="submit">Enviar solicitação</button>
 
-        <button type="submit">Enviar solicitação</button>
+                <p class="aviso-cadastro">* Campos obrigatórios.</p>
+            </form>
+        </section>
+    </main>
 
-    </form>
-
-    <!-- Mensagem de envio -->
-    <?php if (isset($mensagem)) { ?>
-        <p><?= $mensagem ?></p>
-    <?php } ?>
-
+    <footer>
+        <p>Desenvolvido pelo Grupo APD</p>
+        <p>HTML + CSS + PHP + JSON</p>
+    </footer>
 </body>
 
 </html>

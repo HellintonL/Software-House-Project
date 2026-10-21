@@ -5,33 +5,26 @@ $caminhoJson = __DIR__ . "/../dados/projetos.json";
 
 // Lê os projetos salvos
 $conteudoJson = file_get_contents($caminhoJson);
-
-// Transforma o JSON em um array PHP
 $projetos = json_decode($conteudoJson, true);
 
-// Guarda os projetos encontrados para o cliente
+if (!is_array($projetos)) {
+    $projetos = [];
+}
+
 $projetosCliente = [];
 
-// Verifica se o cliente enviou o formulário
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = strtolower(trim($_POST["email"] ?? ""));
 
-    // Recebe o e-mail informado pelo cliente
-    $email = strtolower(trim($_POST["email"]));
-
-    // Procura projetos que possuem esse e-mail
     foreach ($projetos as $projeto) {
-
         if (
             isset($projeto["email"]) &&
             strtolower(trim($projeto["email"])) == $email
         ) {
-
-            // Adiciona o projeto encontrado à lista
             $projetosCliente[] = $projeto;
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -40,107 +33,86 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/consultar.css">
-    <title>Consultar status do projeto</title>
-    
+    <title>Consultar status do projeto | APD</title>
+    <link rel="stylesheet" href="../style/empresa.css">
+    <link rel="stylesheet" href="../style/cadastro.css">
 </head>
 
 <body>
+    <header>
+        <div class="logo">
+            <a href="../index.php">
+                <img src="../imagens/cabecalho.png" alt="Logo da APD" width="245px" height="100px">
+            </a>
+        </div>
 
-    <!-- Barra de navegação -->
-    <nav>
-        <a href="../index.php">Início</a>
-        <a href="cadastro.php">Cadastro</a>
-        <a href="software-house.php">Solicitar projeto</a>
-        <a href="equipe-ti.php">Análise interna</a>
-        <a href="orcamento.php">Orçamento</a>
-        <a href="consultar-projeto.php">Consultar projeto</a>
-    </nav>
+        <nav>
+            <a href="../index.php">Início</a>
+            <a href="cadastro.php">Cadastro</a>
+            <a href="software-house.php">Solicitar projeto</a>
+            <a href="equipe-ti.php">Análise interna</a>
+            <a href="orcamento.php">Orçamento</a>
+            <a href="contra-proposta.php">Contra proposta</a>
+            <a href="contrato.php">Contrato</a>
+            <a href="financeiro.php">Financeiro</a>
+            <a href="desenvolvimento.php">Desenvolvimento</a>
+            <a href="consultar-projeto.php">Consultar projeto</a>
+        </nav>
+    </header>
 
-    <h1>Etapa 5 do processo: consultar status do projeto</h1>
+    <main>
+        <section class="cadastro">
+            <div class="titulo-secao">
+                <p>Etapa 9 do processo</p>
+                <h1>Consultar status do projeto</h1>
+                <p>Informe seu e-mail para acompanhar o resultado da análise, orçamento e andamento atual do projeto.</p>
+            </div>
 
-    <p>Informe seu e-mail para consultar o resultado da avaliação, o orçamento e o andamento atual do projeto.</p>
+            <form method="POST">
+                <label for="email">Seu e-mail *</label>
+                <input type="email" id="email" name="email" required>
 
-    <!-- Formulário para localizar os projetos do cliente -->
-    <form method="POST">
+                <button type="submit">Consultar</button>
+            </form>
 
-        <label>Seu e-mail:</label>
-        <input type="email" name="email" required>
-
-        <button type="submit">Consultar</button>
-
-    </form>
-
-    <hr>
-
-    <?php if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-
-        <!-- Verifica se algum projeto foi encontrado -->
-        <?php if (empty($projetosCliente)) { ?>
-
-            <p>Nenhum projeto encontrado para este e-mail.</p>
-
-        <?php } else { ?>
-
-            <!-- Exibe os projetos encontrados -->
-            <?php foreach ($projetosCliente as $projeto) { ?>
-
-                <h2>
-                    <?= htmlspecialchars($projeto["nome_projeto"]) ?>
-                </h2>
-
-                <!-- Verifica se a equipe já respondeu -->
-                <?php if (isset($projeto["resposta"])) { ?>
-
-                    <!-- Se foi recusado, não mostra orçamento -->
-                    <?php if ($projeto["resposta"] == "REPROVAR") { ?>
-
-                        <p><strong>Resultado:</strong> Recusado.</p>
-
-                    <?php } else { ?>
-
-                        <!-- Se foi aprovado, mostra o resultado e o orçamento -->
-                        <p><strong>Resultado:</strong> Aprovado!</p>
-
-                        <p>
-                            <strong>Orçamento:</strong>
-
-                            <?php if (isset($projeto["orcamento"])) { ?>
-
-                                R$ <?= number_format(
-                                    (float)$projeto["orcamento"],
-                                    2,
-                                    ',',
-                                    '.'
-                                ) ?>
-
-                            <?php } else { ?>
-
-                                Não informado
-
-                            <?php } ?>
-                        </p>
-
-                    <?php } ?>
-
+            <?php if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
+                <?php if (empty($projetosCliente)) { ?>
+                    <p class="mensagem erro" role="status" style="margin-top: 25px;">Nenhum projeto encontrado para este e-mail.</p>
                 <?php } else { ?>
+                    <?php foreach ($projetosCliente as $projeto) { ?>
+                        <div style="margin-top: 30px; border: 1px solid #dfe7ee; border-radius: 8px; padding: 20px; background: #f8fbfd;">
+                            <h2 style="margin: 0 0 15px; color: #173746; font-size: 24px;">
+                                <?= htmlspecialchars($projeto["nome_projeto"] ?? "Projeto") ?>
+                            </h2>
 
-                    <!-- Projeto que ainda não recebeu resposta -->
-                    <p>
-                        <strong>Status:</strong>
-                        Aguardando avaliação da equipe de T.I.
-                    </p>
-
+                            <?php if (isset($projeto["resposta"])) { ?>
+                                <?php if ($projeto["resposta"] == "REPROVAR") { ?>
+                                    <p><strong>Resultado:</strong> Recusado.</p>
+                                <?php } else { ?>
+                                    <p><strong>Resultado:</strong> Aprovado!</p>
+                                    <p>
+                                        <strong>Orçamento:</strong>
+                                        <?php if (isset($projeto["orcamento"])) { ?>
+                                            R$ <?= number_format((float) $projeto["orcamento"], 2, ',', '.') ?>
+                                        <?php } else { ?>
+                                            Não informado
+                                        <?php } ?>
+                                    </p>
+                                <?php } ?>
+                            <?php } else { ?>
+                                <p><strong>Status:</strong> Aguardando avaliação da equipe de T.I.</p>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
                 <?php } ?>
-
-                <hr>
-
             <?php } ?>
+        </section>
+    </main>
 
-        <?php } ?>
-
-    <?php } ?>
-
+    <footer>
+        <p>Desenvolvido pelo Grupo APD</p>
+        <p>HTML + CSS + PHP + JSON</p>
+    </footer>
 </body>
 
 </html>
