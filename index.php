@@ -26,7 +26,7 @@
     <main>
            <section id="inicio" class="inicio">
             <div class="inicio-conteudo">
-                <p class="apresentacao">Olá, somos empresa</p>
+                <p class="apresentacao">Olá, somos a empresa</p>
                 <h1>APD</h1>
                 <h2>Desenvolvedores de software</h2>
                 <p class="descricao">
