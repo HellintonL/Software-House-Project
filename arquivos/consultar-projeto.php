@@ -1,4 +1,3 @@
-
 <?php
 
 // Caminho do arquivo JSON
@@ -42,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/consultar.css">
-    <title>Consultar Projeto</title>
+    <title>Consultar status do projeto</title>
     
 </head>
 
@@ -50,15 +49,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Barra de navegação -->
     <nav>
-        <a href="software-house.php">Enviar projeto</a>
-        <a href="equipe-ti.php">Área da equipe de T.I.</a>
+        <a href="../index.php">Início</a>
+        <a href="cadastro.php">Cadastro</a>
+        <a href="software-house.php">Solicitar projeto</a>
+        <a href="equipe-ti.php">Análise interna</a>
+        <a href="orcamento.php">Orçamento</a>
         <a href="consultar-projeto.php">Consultar projeto</a>
-        <a href="../index.php">VOLTAR ÍNDEX</a>
     </nav>
 
-    <h1>Consulte seu projeto</h1>
+    <h1>Etapa 5 do processo: consultar status do projeto</h1>
 
-    <p>Informe seu e-mail para consultar o resultado da avaliação.</p>
+    <p>Informe seu e-mail para consultar o resultado da avaliação, o orçamento e o andamento atual do projeto.</p>
 
     <!-- Formulário para localizar os projetos do cliente -->
     <form method="POST">
