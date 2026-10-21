@@ -132,7 +132,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro | APD</title>
+    <title>Cadastro do cliente | APD</title>
     <link rel="stylesheet" href="../style/empresa.css">
     <link rel="stylesheet" href="../style/cadastro.css">
 </head>
@@ -148,17 +148,18 @@
     <nav>
         <a href="../index.php">Início</a>
         <a href="../index.php#sobre">Sobre a empresa</a>
-        <a href="../index.php#projetos">Projetos</a>
-        <a href="../index.php#contato">Contato</a>
+        <a href="software-house.php">Solicitar projeto</a>
+        <a href="orcamento.php">Orçamento</a>
+        <a href="consultar-projeto.php">Consultar projeto</a>
     </nav>
 </header>
 
 <main>
     <section class="cadastro">
         <div class="titulo-secao">
-            <p>Faça parte da APD</p>
-            <h1>Cadastro de empresa</h1>
-            <p>Preencha os dados para cadastrar sua empresa.</p>
+            <p>Etapa 1 do processo</p>
+            <h1>Cadastro da empresa / cliente</h1>
+            <p>Antes de enviar a demanda do projeto, cadastre seus dados para registrar o cliente e manter o histórico comercial.</p>
         </div>
 
         <?php if ($mensagem !== ''): ?>
