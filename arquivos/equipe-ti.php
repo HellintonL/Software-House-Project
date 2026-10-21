@@ -126,253 +126,149 @@ $aba = ($_GET["aba"] ?? "") == "respondidos"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área de análise interna</title>
+    <link rel="stylesheet" href="../style/empresa.css">
+    <link rel="stylesheet" href="../style/cadastro.css">
     <link rel="stylesheet" href="../style/equipe-ti.css">
-
-    <style>
-        nav {
-            margin-bottom: 25px;
-        }
-
-        nav a {
-            margin-right: 15px;
-        }
-
-        .aba {
-            display: inline-block;
-            padding: 10px;
-            background-color: #ddd;
-            color: black;
-            text-decoration: none;
-        }
-
-        .ativa {
-            background-color: #333;
-            color: white;
-        }
-
-        .campo-orcamento {
-            margin-top: 10px;
-        }
-
-        button {
-            margin-top: 8px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- Barra de navegação principal -->
-    <nav>
-        <a href="../index.php">Início</a>
-        <a href="cadastro.php">Cadastro</a>
-        <a href="software-house.php">Solicitar projeto</a>
-        <a href="equipe-ti.php">Análise interna</a>
-        <a href="orcamento.php">Orçamento</a>
-        <a href="consultar-projeto.php">Consultar projeto</a>
-    </nav>
+    <header>
+        <div class="logo">
+            <a href="../index.php">
+                <img src="../imagens/cabecalho.png" alt="Logo da APD" width="245px" height="100px">
+            </a>
+        </div>
 
-    <h1>Etapa 3 do processo: análise interna da demanda</h1>
+        <nav>
+            <a href="../index.php">Início</a>
+            <a href="cadastro.php">Cadastro</a>
+            <a href="software-house.php">Solicitar projeto</a>
+            <a href="equipe-ti.php">Análise interna</a>
+            <a href="orcamento.php">Orçamento</a>
+            <a href="consultar-projeto.php">Consultar projeto</a>
+        </nav>
+    </header>
 
-    <!-- Abas para organizar os projetos -->
-    <div>
-        <a class="aba <?= $aba == 'aguardando' ? 'ativa' : '' ?>"
-           href="equipe-ti.php?aba=aguardando">
-            Aguardando avaliação
-        </a>
+    <main>
+        <section class="cadastro">
+            <div class="titulo-secao">
+                <p>Etapa 3 do processo</p>
+                <h1>Análise interna da demanda</h1>
+                <p>Valide a solicitação do cliente, defina a viabilidade do projeto e encaminhe a proposta comercial.</p>
+            </div>
 
-        <a class="aba <?= $aba == 'respondidos' ? 'ativa' : '' ?>"
-           href="equipe-ti.php?aba=respondidos">
-            Projetos respondidos
-        </a>
-    </div>
-
-    <hr>
-
-    <!-- Exibe um aviso se o orçamento estiver inválido -->
-    <?php if (isset($_GET["erro"]) && $_GET["erro"] == "orcamento") { ?>
-        <p>Informe um orçamento válido para aprovar o projeto.</p>
-    <?php } ?>
-
-    <!-- Botão para excluir todos os projetos -->
-    <?php if (!empty($projetos)) { ?>
-
-        <form method="POST"
-              onsubmit="return confirm('Deseja excluir TODOS os projetos?');">
-
-            <input type="hidden" name="acao" value="limpar_todos">
-            <input type="hidden" name="aba" value="<?= $aba ?>">
-
-            <button type="submit">Excluir todos os projetos</button>
-        </form>
-
-    <?php } ?>
-
-    <?php
-
-    // Controla se algum projeto foi encontrado na aba
-    $encontrou = false;
-
-    // Percorre todos os projetos salvos
-    foreach ($projetos as $indice => $projeto) {
-
-        // Verifica se o projeto já recebeu uma resposta
-        $temResposta = isset($projeto["resposta"]);
-
-        // Exibe somente os projetos da aba escolhida
-        if (
-            ($aba == "respondidos" && $temResposta) ||
-            ($aba == "aguardando" && !$temResposta)
-        ) {
-
-            $encontrou = true;
-    ?>
-
-            <h2>
-                <?= htmlspecialchars($projeto["nome_projeto"]) ?>
-            </h2>
-
-            <p>
-                <strong>Cliente:</strong>
-                <?= htmlspecialchars($projeto["nome"]) ?>
-            </p>
-
-            <p>
-                <strong>E-mail:</strong>
-                <?= htmlspecialchars($projeto["email"]) ?>
-            </p>
-
-            <p>
-                <strong>Descrição:</strong>
-                <?= nl2br(htmlspecialchars($projeto["descricao"])) ?>
-            </p>
-
-            <?php if ($temResposta) { ?>
-
-                <!-- Se foi recusado, mostra apenas o resultado -->
-                <?php if ($projeto["resposta"] == "REPROVAR") { ?>
-
-                    <p><strong>Resultado:</strong> Recusado.</p>
-
-                <?php } else { ?>
-
-                    <!-- Para os aprovados, mostra o resultado e o orçamento -->
-                    <p><strong>Resultado:</strong> Aprovado!</p>
-
-                    <p>
-                        <strong>Orçamento:</strong>
-                        R$ <?= number_format(
-                            (float)($projeto["orcamento"] ?? 0),
-                            2,
-                            ',',
-                            '.'
-                        ) ?>
-                    </p>
-
-                <?php } ?>
-
-            <?php } else { ?>
-
-                <!-- Formulário para avaliar o projeto -->
-                <form method="POST" class="form-resposta">
-
-                    <input type="hidden" name="acao" value="responder">
-                    <input type="hidden" name="indice"
-                           value="<?= $indice ?>">
-                    <input type="hidden" name="aba" value="<?= $aba ?>">
-
-                    <label>Resposta final:</label>
-
-                    <select name="resposta">
-                        <option value="APROVAR">APROVAR</option>
-                        <option value="REPROVAR">REPROVAR</option>
-                    </select>
-
-                    <!-- Campo que desaparece ao selecionar REPROVAR -->
-                    <div class="campo-orcamento">
-                        <label>Orçamento do projeto (R$):</label>
-
-                        <input type="number"
-                               name="orcamento"
-                               min="0"
-                               step="0.01"
-                               required>
-                    </div>
-
-                    <br>
-
-                    <button type="submit">Enviar resposta</button>
-
-                </form>
-
-                <p>
-                    <strong>Status:</strong>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+                <a class="aba <?= $aba == 'aguardando' ? 'ativa' : '' ?>"
+                   href="equipe-ti.php?aba=aguardando">
                     Aguardando avaliação
-                </p>
+                </a>
 
+                <a class="aba <?= $aba == 'respondidos' ? 'ativa' : '' ?>"
+                   href="equipe-ti.php?aba=respondidos">
+                    Projetos respondidos
+                </a>
+            </div>
+
+            <?php if (isset($_GET["erro"]) && $_GET["erro"] == "orcamento") { ?>
+                <p class="mensagem erro" role="status">Informe um orçamento válido para aprovar o projeto.</p>
             <?php } ?>
 
-            <!-- Botão para excluir somente este projeto -->
-            <form method="POST"
-                  onsubmit="return confirm('Deseja excluir este projeto?');">
+            <?php if (!empty($projetos)) { ?>
+                <form method="POST" onsubmit="return confirm('Deseja excluir TODOS os projetos?');" style="margin-bottom: 25px;">
+                    <input type="hidden" name="acao" value="limpar_todos">
+                    <input type="hidden" name="aba" value="<?= $aba ?>">
+                    <button type="submit">Excluir todos os projetos</button>
+                </form>
+            <?php } ?>
 
-                <input type="hidden" name="acao" value="excluir_um">
-                <input type="hidden" name="indice"
-                       value="<?= $indice ?>">
-                <input type="hidden" name="aba" value="<?= $aba ?>">
+            <?php
+            $encontrou = false;
+            foreach ($projetos as $indice => $projeto) {
+                $temResposta = isset($projeto["resposta"]);
 
-                <button type="submit">Excluir este projeto</button>
+                if (($aba == "respondidos" && $temResposta) || ($aba == "aguardando" && !$temResposta)) {
+                    $encontrou = true;
+            ?>
+                    <div style="border: 1px solid #dfe7ee; border-radius: 8px; padding: 20px; margin-bottom: 20px; background: #f8fbfd;">
+                        <h2 style="margin: 0 0 15px; color: #173746; font-size: 24px;">
+                            <?= htmlspecialchars($projeto["nome_projeto"]) ?>
+                        </h2>
 
-            </form>
+                        <p><strong>Cliente:</strong> <?= htmlspecialchars($projeto["nome"]) ?></p>
+                        <p><strong>E-mail:</strong> <?= htmlspecialchars($projeto["email"]) ?></p>
+                        <p><strong>Descrição:</strong> <?= nl2br(htmlspecialchars($projeto["descricao"])) ?></p>
 
-            <hr>
+                        <?php if ($temResposta) { ?>
+                            <?php if ($projeto["resposta"] == "REPROVAR") { ?>
+                                <p><strong>Resultado:</strong> Recusado.</p>
+                            <?php } else { ?>
+                                <p><strong>Resultado:</strong> Aprovado!</p>
+                                <p>
+                                    <strong>Orçamento:</strong>
+                                    R$ <?= number_format((float)($projeto["orcamento"] ?? 0), 2, ',', '.') ?>
+                                </p>
+                            <?php } ?>
+                        <?php } else { ?>
+                            <form method="POST" class="form-resposta" style="margin-top: 20px;">
+                                <input type="hidden" name="acao" value="responder">
+                                <input type="hidden" name="indice" value="<?= $indice ?>">
+                                <input type="hidden" name="aba" value="<?= $aba ?>">
 
-    <?php
-        }
-    }
+                                <label>Resposta final:</label>
+                                <select name="resposta">
+                                    <option value="APROVAR">APROVAR</option>
+                                    <option value="REPROVAR">REPROVAR</option>
+                                </select>
 
-    // Mensagem para abas sem projetos
-    if (!$encontrou) {
-    ?>
+                                <div class="campo-orcamento">
+                                    <label>Orçamento do projeto (R$):</label>
+                                    <input type="number" name="orcamento" min="0" step="0.01" required>
+                                </div>
 
-        <p>Nenhum projeto nesta aba.</p>
+                                <button type="submit">Enviar resposta</button>
+                            </form>
 
-    <?php } ?>
+                            <p style="margin-top: 15px;"><strong>Status:</strong> Aguardando avaliação</p>
+                        <?php } ?>
+
+                        <form method="POST" onsubmit="return confirm('Deseja excluir este projeto?');" style="margin-top: 18px;">
+                            <input type="hidden" name="acao" value="excluir_um">
+                            <input type="hidden" name="indice" value="<?= $indice ?>">
+                            <input type="hidden" name="aba" value="<?= $aba ?>">
+                            <button type="submit">Excluir este projeto</button>
+                        </form>
+                    </div>
+            <?php
+                }
+            }
+
+            if (!$encontrou) {
+                echo '<p class="mensagem erro">Nenhum projeto nesta aba.</p>';
+            }
+            ?>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido pelo Grupo APD</p>
+        <p>HTML + CSS + PHP + JSON</p>
+    </footer>
 
     <script>
-        // Localiza todos os formulários de resposta
-        document.querySelectorAll(".form-resposta").forEach(function(form) {
-
-            // Localiza o seletor de aprovação ou reprovação
+        document.querySelectorAll('.form-resposta').forEach(function(form) {
             const seletor = form.querySelector('[name="resposta"]');
-
-            // Localiza o campo do orçamento
-            const campo = form.querySelector(".campo-orcamento");
-
-            // Localiza o campo onde o valor será digitado
+            const campo = form.querySelector('.campo-orcamento');
             const input = campo.querySelector('[name="orcamento"]');
 
-            // Atualiza a exibição quando a resposta muda
             function atualizarOrcamento() {
-
-                // Verifica se a equipe escolheu reprovar
-                const recusado = seletor.value == "REPROVAR";
-
-                // Esconde o orçamento quando o projeto é recusado
-                campo.style.display = recusado ? "none" : "block";
-
-                // Desativa o campo para não enviar orçamento na recusa
+                const recusado = seletor.value == 'REPROVAR';
+                campo.style.display = recusado ? 'none' : 'block';
                 input.disabled = recusado;
-
-                // Exige orçamento somente para projetos aprovados
                 input.required = !recusado;
             }
 
-            // Executa a função quando o seletor é alterado
-            seletor.addEventListener("change", atualizarOrcamento);
-
-            // Define a exibição inicial do orçamento
+            seletor.addEventListener('change', atualizarOrcamento);
             atualizarOrcamento();
         });
     </script>
