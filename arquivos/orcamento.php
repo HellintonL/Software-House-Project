@@ -62,19 +62,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <nav>
         <a href="../index.php">Início</a>
         <a href="../index.php#sobre">Sobre a empresa</a>
-        <a href="software-house.php">Enviar projeto</a>
-        <a href="equipe-ti.php">Área da equipe de T.I.</a>
+        <a href="cadastro.php">Cadastro</a>
+        <a href="software-house.php">Solicitar projeto</a>
+        <a href="equipe-ti.php">Análise interna</a>
+        <a href="orcamento.php">Orçamento</a>
         <a href="consultar-projeto.php">Consultar projeto</a>
-        <a href="../index.php#contato">Contato</a>
     </nav>
 </header>
 
 <main>
     <section class="cadastro">
         <div class="titulo-secao">
-            <p>Calcule seu orçamento</p>
-            <h1>Orçamento de projeto</h1>
-            <p>Preencha os dados para calcular o valor do projeto.</p>
+            <p>Etapa 4 do processo</p>
+            <h1>Proposta comercial / orçamento</h1>
+            <p>Após a análise da demanda, esta etapa formaliza a proposta com valor, prazo e condições do projeto.</p>
         </div>
 
         <?php if ($_SERVER["REQUEST_METHOD"] === "POST" && $erro !== ""): ?>
