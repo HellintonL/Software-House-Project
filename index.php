@@ -16,10 +16,11 @@
         <nav>
             <a href="#inicio">Início</a>
             <a href="#sobre">Sobre a empresa</a>
-            <a href="#projetos">Apresentar projeto</a>
-            <a href="#contato">Contato</a>
             <a href="arquivos/cadastro.php">Cadastro</a>
+            <a href="arquivos/software-house.php">Solicitar projeto</a>
             <a href="arquivos/orcamento.php">Orçamento</a>
+            <a href="arquivos/consultar-projeto.php">Consultar projeto</a>
+            <a href="#contato">Contato</a>
         </nav>
     </header>
     
@@ -35,8 +36,8 @@
             </div>
 
             <div class="botoes">
-                <a href="#projetos" class="botao">Mostrar projeto </a>
-                <a href="#contato" class="botao botao-secundario">Entrar em contato</a>
+                <a href="arquivos/cadastro.php" class="botao">Cadastrar empresa</a>
+                <a href="arquivos/software-house.php" class="botao botao-secundario">Solicitar projeto</a>
             </div>
            </section>
 
@@ -87,7 +88,22 @@
             <section id="projetos" class="projetos-secao">
                 <div class="projetos">
 
-                <!-- PROJETO 1-->
+                <!-- ETAPA 1 -->
+
+                <div class="card">
+
+                    <div class="icone-projeto">
+                        ♙
+                    </div>
+
+                    <h3>Cadastro</h3>
+                    <p>
+                         Cadastre sua empresa e seus dados para iniciar o processo comercial e manter o histórico do cliente.
+                    </p>
+                    <a href="arquivos/cadastro.php">Acessar cadastro</a>
+                </div>
+
+                <!-- ETAPA 2 -->
 
                 <div class="card">
 
@@ -95,7 +111,7 @@
                         ◇
                     </div>
 
-                    <h3>Apresentar projeto</h3>
+                    <h3>Solicitar projeto</h3>
                     <p>
                         Conte-nos sobre seu projeto, seus objetivos e o que você deseja construir. Vamos analisar sua ideia e preparar uma proposta personalizada para você.
                     </p>
@@ -104,7 +120,7 @@
                     <a href="arquivos/software-house.php">Apresentar projeto</a>
                 </div>
 
-                <!-- PROJETO 2-->
+                <!-- ETAPA 3 -->
 
                 <div class="card">
 
@@ -119,33 +135,19 @@
                     <a href="arquivos/orcamento.php">Ver orçamento e prazo</a>
                 </div>
 
-                <!-- PROJETO 3-->
+                <!-- ETAPA 4 -->
                 <div class="card">
 
                     <div class="icone-projeto">
                         ▦
                     </div>
 
-                    <h3>Ver empresas</h3>
+                    <h3>Consultar status</h3>
                     <p>
-                        Aqui você pode ver as empresas que já apresentaram seus projetos, com informações sobre cada uma delas, como nome, contato e status do projeto.
+                        Acompanhe a resposta da sua proposta, o andamento da análise e o estado atual do seu projeto.
                     </p>
-                    <a href="arquivos/dados-json.php">Ver empresas</a>
+                    <a href="arquivos/consultar-projeto.php">Consultar projeto</a>
 
-                </div>
-
-                <!-- PROJETO 4-->
-                <div class="card">
-
-                    <div class="icone-projeto">
-                        ♙
-                    </div>
-
-                    <h3>Cadastro</h3>
-                    <p>
-                         Cadastre-se para conhecer e acompanhar os serviços da Software Home.
-                    </p>
-                    <a href="arquivos/cadastro.php">Acessar cadastro</a>
                 </div>
 
                 </div>
