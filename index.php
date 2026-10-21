@@ -18,7 +18,12 @@
             <a href="#sobre">Sobre a empresa</a>
             <a href="arquivos/cadastro.php">Cadastro</a>
             <a href="arquivos/software-house.php">Solicitar projeto</a>
+            <a href="arquivos/equipe-ti.php">Análise interna</a>
             <a href="arquivos/orcamento.php">Orçamento</a>
+            <a href="arquivos/contra-proposta.php">Contra proposta</a>
+            <a href="arquivos/contrato.php">Contrato</a>
+            <a href="arquivos/financeiro.php">Financeiro</a>
+            <a href="arquivos/desenvolvimento.php">Desenvolvimento</a>
             <a href="arquivos/consultar-projeto.php">Consultar projeto</a>
             <a href="#contato">Contato</a>
         </nav>
@@ -115,8 +120,6 @@
                     <p>
                         Conte-nos sobre seu projeto, seus objetivos e o que você deseja construir. Vamos analisar sua ideia e preparar uma proposta personalizada para você.
                     </p>
-
-                    
                     <a href="arquivos/software-house.php">Apresentar projeto</a>
                 </div>
 
@@ -125,29 +128,98 @@
                 <div class="card">
 
                     <div class="icone-projeto">
-                        R$
+                        ✓
                     </div>
 
-                    <h3>Ver orçamento</h3>
+                    <h3>Análise interna</h3>
                     <p>
-                        Analisamos sua proposta com atenção para elaborar um orçamento, com valores e prazos de acordo com as necessidades do seu projeto. 
+                        A equipe valida a demanda, verifica a viabilidade e encaminha a resposta da solicitação.
                     </p>
-                    <a href="arquivos/orcamento.php">Ver orçamento e prazo</a>
+                    <a href="arquivos/equipe-ti.php">Ver análise</a>
                 </div>
 
                 <!-- ETAPA 4 -->
                 <div class="card">
 
                     <div class="icone-projeto">
+                        R$
+                    </div>
+
+                    <h3>Orçamento</h3>
+                    <p>
+                        Definimos valor, prazo e condições com base na análise da demanda e do escopo solicitado.
+                    </p>
+                    <a href="arquivos/orcamento.php">Ver orçamento e prazo</a>
+                </div>
+
+                <!-- ETAPA 5 -->
+                <div class="card">
+
+                    <div class="icone-projeto">
+                        ↺
+                    </div>
+
+                    <h3>Contra proposta</h3>
+                    <p>
+                        O cliente pode ajustar valor, prazo, escopo ou condições para reabrir a negociação.
+                    </p>
+                    <a href="arquivos/contra-proposta.php">Enviar contra proposta</a>
+                </div>
+
+                <!-- ETAPA 6 -->
+                <div class="card">
+
+                    <div class="icone-projeto">
+                        ☑
+                    </div>
+
+                    <h3>Contrato</h3>
+                    <p>
+                        Quando aprovado, formalizamos o acordo e seguimos para a assinatura do cliente e da empresa.
+                    </p>
+                    <a href="arquivos/contrato.php">Gerar contrato</a>
+                </div>
+
+                <!-- ETAPA 7 -->
+                <div class="card">
+
+                    <div class="icone-projeto">
+                        ₿
+                    </div>
+
+                    <h3>Financeiro</h3>
+                    <p>
+                        Acompanhe o status do pagamento e mantenha o projeto em situação financeira correta.
+                    </p>
+                    <a href="arquivos/financeiro.php">Acompanhar financeiro</a>
+                </div>
+
+                <!-- ETAPA 8 -->
+                <div class="card">
+
+                    <div class="icone-projeto">
                         ▦
+                    </div>
+
+                    <h3>Desenvolvimento</h3>
+                    <p>
+                        Defina se o projeto está pendente, em desenvolvimento ou entregue.
+                    </p>
+                    <a href="arquivos/desenvolvimento.php">Status do projeto</a>
+                </div>
+
+                <!-- ETAPA 9 -->
+                <div class="card">
+
+                    <div class="icone-projeto">
+                        ◍
                     </div>
 
                     <h3>Consultar status</h3>
                     <p>
-                        Acompanhe a resposta da sua proposta, o andamento da análise e o estado atual do seu projeto.
+                        Acompanhe a resposta da proposta, o andamento da análise e o estado atual do projeto.
                     </p>
                     <a href="arquivos/consultar-projeto.php">Consultar projeto</a>
-
                 </div>
 
                 </div>
