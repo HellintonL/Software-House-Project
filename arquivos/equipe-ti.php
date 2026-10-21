@@ -125,7 +125,7 @@ $aba = ($_GET["aba"] ?? "") == "respondidos"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área da equipe de T.I.</title>
+    <title>Área de análise interna</title>
     <link rel="stylesheet" href="../style/equipe-ti.css">
 
     <style>
@@ -165,12 +165,15 @@ $aba = ($_GET["aba"] ?? "") == "respondidos"
 
     <!-- Barra de navegação principal -->
     <nav>
-        <a href="software-house.php">Enviar projeto</a>
-        <a href="equipe-ti.php">Área da equipe de T.I.</a>
+        <a href="../index.php">Início</a>
+        <a href="cadastro.php">Cadastro</a>
+        <a href="software-house.php">Solicitar projeto</a>
+        <a href="equipe-ti.php">Análise interna</a>
+        <a href="orcamento.php">Orçamento</a>
         <a href="consultar-projeto.php">Consultar projeto</a>
     </nav>
 
-    <h1>Projetos recebidos</h1>
+    <h1>Etapa 3 do processo: análise interna da demanda</h1>
 
     <!-- Abas para organizar os projetos -->
     <div>
