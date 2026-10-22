@@ -86,36 +86,6 @@
             <section id="projetos" class="projetos-secao">
                 <div class="projetos">
 
-                <!-- ETAPA 1 -->
-
-                <div class="card">
-
-                    <div class="icone-projeto">
-                        ♙
-                    </div>
-
-                    <h3>Cadastro</h3>
-                    <p>
-                         Cadastre sua empresa e seus dados para iniciar o processo comercial e manter o histórico do cliente.
-                    </p>
-                    <a href="arquivos/cadastro.php">Acessar cadastro</a>
-                </div>
-
-                <!-- ETAPA 2 -->
-
-                <div class="card">
-
-                    <div class="icone-projeto">
-                        ◇
-                    </div>
-
-                    <h3>Solicitar projeto</h3>
-                    <p>
-                        Conte-nos sobre seu projeto, seus objetivos e o que você deseja construir. Vamos analisar sua ideia e preparar uma proposta personalizada para você.
-                    </p>
-                    <a href="arquivos/software-house.php">Apresentar projeto</a>
-                </div>
-
                 <!-- ETAPA 3 -->
 
                 <div class="card">
