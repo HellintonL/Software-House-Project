@@ -61,7 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <nav>
             <a href="../index.php">Início</a>
             <a href="cadastro.php">Cadastro</a>
-            <a href="software-house.php">Solicitar projeto</a>
             <a href="equipe-ti.php">Análise interna</a>
             <a href="orcamento.php">Orçamento</a>
             <a href="contra-proposta.php">Contra proposta</a>
