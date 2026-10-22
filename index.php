@@ -17,8 +17,6 @@
             <a href="#sobre">Sobre a empresa</a>
             <a href="arquivos/cadastro.php">Cadastro</a>
             <a href="arquivos/software-house.php">Solicitar projeto</a>
-            <a href="arquivos/financeiro.php">Financeiro</a>
-            <a href="arquivos/desenvolvimento.php">Desenvolvimento</a>
             <a href="arquivos/consultar-projeto.php">Consultar projeto</a>
             <a href="#contato">Contato</a>
         </nav>
