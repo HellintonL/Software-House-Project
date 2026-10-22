@@ -232,8 +232,8 @@
                 </div>
                 <div class="contato-links">
                     <a href="https://wa.me/5541998892366">WhatsApp</a>
-                    <a href="mailto:kauacastroamaral@gmail.com">Email</a>
-                    <a href="https://github.com/kauacastroamaral-prog">GitHub</a>
+                    <a href="mailto:puxadinhodigital@gmail.com">Email</a>
+                    <a href="https://github.com/HellintonL/Software-House-Project">GitHub</a>
                     <a href="">LinkedIn</a>
                 </div>
             </section>
