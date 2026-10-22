@@ -14,14 +14,9 @@
         </div>
 
         <nav>
-            <a href="#inicio">Início</a>
             <a href="#sobre">Sobre a empresa</a>
             <a href="arquivos/cadastro.php">Cadastro</a>
             <a href="arquivos/software-house.php">Solicitar projeto</a>
-            <a href="arquivos/equipe-ti.php">Análise interna</a>
-            <a href="arquivos/orcamento.php">Orçamento</a>
-            <a href="arquivos/contra-proposta.php">Contra proposta</a>
-            <a href="arquivos/contrato.php">Contrato</a>
             <a href="arquivos/financeiro.php">Financeiro</a>
             <a href="arquivos/desenvolvimento.php">Desenvolvimento</a>
             <a href="arquivos/consultar-projeto.php">Consultar projeto</a>
