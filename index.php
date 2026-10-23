@@ -14,16 +14,9 @@
         </div>
 
         <nav>
-            <a href="#inicio">Início</a>
             <a href="#sobre">Sobre a empresa</a>
             <a href="arquivos/cadastro.php">Cadastro</a>
             <a href="arquivos/software-house.php">Solicitar projeto</a>
-            <a href="arquivos/equipe-ti.php">Análise interna</a>
-            <a href="arquivos/orcamento.php">Orçamento</a>
-            <a href="arquivos/contra-proposta.php">Contra proposta</a>
-            <a href="arquivos/contrato.php">Contrato</a>
-            <a href="arquivos/financeiro.php">Financeiro</a>
-            <a href="arquivos/desenvolvimento.php">Desenvolvimento</a>
             <a href="arquivos/consultar-projeto.php">Consultar projeto</a>
             <a href="#contato">Contato</a>
         </nav>
@@ -92,36 +85,6 @@
 
             <section id="projetos" class="projetos-secao">
                 <div class="projetos">
-
-                <!-- ETAPA 1 -->
-
-                <div class="card">
-
-                    <div class="icone-projeto">
-                        ♙
-                    </div>
-
-                    <h3>Cadastro</h3>
-                    <p>
-                         Cadastre sua empresa e seus dados para iniciar o processo comercial e manter o histórico do cliente.
-                    </p>
-                    <a href="arquivos/cadastro.php">Acessar cadastro</a>
-                </div>
-
-                <!-- ETAPA 2 -->
-
-                <div class="card">
-
-                    <div class="icone-projeto">
-                        ◇
-                    </div>
-
-                    <h3>Solicitar projeto</h3>
-                    <p>
-                        Conte-nos sobre seu projeto, seus objetivos e o que você deseja construir. Vamos analisar sua ideia e preparar uma proposta personalizada para você.
-                    </p>
-                    <a href="arquivos/software-house.php">Apresentar projeto</a>
-                </div>
 
                 <!-- ETAPA 3 -->
 
